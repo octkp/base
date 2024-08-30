@@ -26,6 +26,13 @@ alias apitest="docker compose exec phpunit vendor/bin/phpunit --testdox"
 alias apitest-coverage="docker compose exec phpunit vendor/bin/phpunit --testdox --coverage-html coverage-result"
 alias forum-test="docker compose exec forum-api vendor/bin/phpunit --testdox"
 
+ba-chat-test() {
+	docker compose -f docker-compose.yaml -f devops/docker-compose.test.yaml up --build --remove-orphans --detach --wait api
+	sleep 1
+	go test "$1" -v -count 1
+	docker compose down
+}
+
 #migration
 migration-xba() {
   cd ~/dev/ba/bigadvance/src/xba

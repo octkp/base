@@ -13,6 +13,10 @@ alias gcm="git commit"
 alias gco="git checkout"
 alias gst="git stash"
 
+git-commit-rename() {
+  git commit --amend -m "$1"
+}
+
 # neovim
 alias v="nvim"
 
@@ -47,9 +51,21 @@ alias load="source ~/.zshrc"
 alias zalias="nvim ~/zalias"
 
 # brewfile
-alias brewfile-dump="brew bundle dump --force --global"
+# 現在インストールされているHomebrewのパッケージを Brewfile にエクスポートします。これにより、後で同じパッケージを再インストールするのが簡単になります。
+brewfile-dump() {
+	brew bundle dump --force --global
+	if [ -f ~/.Brewfile ]; then
+		cp ~/.Brewfile ~/dotfiles/brew/Brewfile
+	else
+		echo "Error: ~/.Brewfile not found"
+	fi
+}
+
+# Brewfile に含まれていないパッケージを削除します。インストール済みの不要なパッケージの整理に役立ちます。
 alias brewfile-cleanup="brew bundle cleanup --force --global"
+# グローバルな Brewfile を元に必要なパッケージをインストールします。環境の再構築などに便利ですね。
 alias brewfile-install="brew bundle --global"
+# Homebrewのパッケージとリポジトリを更新・アップグレードします。最新バージョンのツールを使いたいときに有用です。
 alias update-app="brew update && brew upgrade"
 
 # googledrive
