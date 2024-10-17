@@ -26,6 +26,9 @@ alias apitest="docker compose exec phpunit vendor/bin/phpunit --testdox"
 alias apitest-coverage="docker compose exec phpunit vendor/bin/phpunit --testdox --coverage-html coverage-result"
 alias forum-test="docker compose exec forum-api vendor/bin/phpunit --testdox"
 
+#launcher
+alias launcher='~/dev/ba/badev/launcher.sh'
+
 ba-chat-test() {
 	docker compose -f docker-compose.yaml -f devops/docker-compose.test.yaml up --build --remove-orphans --detach --wait api
 	sleep 1

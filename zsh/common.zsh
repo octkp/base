@@ -76,3 +76,7 @@ bindkey "^N" history-beginning-search-forward-end
 
 # path
 export PATH=~/.composer/vendor/bin:$PATH
+
+# 環境変数
+export BA_DEV_LAUNCHER_BROWSER='Google Chrome'
+export BA_DEV_LAUNCHER_EDITOR='phpstorm'
