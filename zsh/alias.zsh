@@ -84,3 +84,8 @@ alias phpunit="vendor/bin/phpunit --testdox --colors"
 
 #php-cs-fixer
 alias phpfix="vendor/bin/php-cs-fixer"
+
+# fzf
+alias f="source ~/.config/zsh/f.zsh"
+
+alias note='cd ~/notes/'
