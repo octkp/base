@@ -11,6 +11,8 @@ require('packer').startup(function(use)
   -- Package manager
   use 'wbthomason/packer.nvim'
 
+  use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'}
+
   use { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     requires = {
