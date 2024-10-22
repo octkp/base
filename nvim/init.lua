@@ -227,6 +227,11 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>dn', ':execute "edit ~/notes/daily_note/" . strftime("%Y-%m-%d") . ".md"<CR>', { noremap = true, silent = true })
 
+vim.keymap.set('n', '<leader>t', function()
+  local timestamp = os.date("%H:%M:%S")
+  vim.api.nvim_put({timestamp}, 'c', true, true)
+end, { noremap = true, silent = true })
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)

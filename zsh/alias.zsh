@@ -26,13 +26,9 @@ if [[ $(command -v colordiff) ]]; then
 fi
 
 # exa
-if [[ $(command -v exa) ]]; then
-  alias ea='exa -a --icons'
-  alias la=ea
-  alias ee='exa -aal --icons'
-  alias ls=ee
-  alias et='exa -T -L 3 -a -I "node_modules|.git|.cache|.idea" --icons'
-  alias lt=et
+if [[ $(command -v eza) ]]; then
+  alias ls='eza -la --icons'
+  alias lt='eza --icons --git --time-style relative -al'
 fi
 
 # docker
@@ -49,6 +45,9 @@ alias sail="vendor/bin/sail"
 alias zsh="nvim ~/.zshrc"
 alias load="source ~/.zshrc"
 alias zalias="nvim ~/zalias"
+
+# cloude code
+alias cc="claude"
 
 # brewfile
 # 現在インストールされているHomebrewのパッケージを Brewfile にエクスポートします。これにより、後で同じパッケージを再インストールするのが簡単になります。
@@ -76,6 +75,9 @@ alias script="open -na \"PhpStorm.app\" --args ~/scripts"
 alias dot="open -na \"PhpStorm.app\" --args ~/dotfiles"
 alias edit="open -na \"PhpStorm.app\" --args ."
 
+#goland
+alias edit-gl="open -na \"GoLand.app\" --args ."
+
 # cursor
 alias cs="cursor ."
 
@@ -88,4 +90,4 @@ alias phpfix="vendor/bin/php-cs-fixer"
 # fzf
 alias f="source ~/.config/zsh/f.zsh"
 
-alias note='cd ~/notes/'
+alias note="open -na \"PhpStorm.app\" --args ~/notes"

@@ -1,3 +1,7 @@
+# Environment variables
+export BA_DEV_LAUNCHER_BROWSER='Google Chrome'
+export BA_DEV_LAUNCHER_EDITOR='phpstorm'
+
 # alias
 alias kalias="nvim ~/kalias"
 
@@ -6,6 +10,7 @@ alias ksail="bash sail"
 
 # aws
 alias awslogin-test="aws sso login --profile ba_developers"
+alias awslogin-koko="aws sso login --profile koko"
 alias awslogin-prod="aws sso login --profile xba"
 
 # dev
@@ -14,7 +19,7 @@ alias badev="cd ~/dev/ba/badev"
 alias bigadvance="cd ~/dev/ba/bigadvance"
 
 #postgres
-alias pqlogin="dc exec db psql -U webapp -d"
+alias pg="dc exec db psql -U webapp -d"
 
 # tests
 alias batest="~/dev/ba/bigadvance/src/xba/phpunit/run.sh --testdox"
@@ -25,9 +30,16 @@ alias batest-cd="cd ~/dev/ba/bigadvance/src/xba/phpunit"
 alias apitest="docker compose exec phpunit vendor/bin/phpunit --testdox"
 alias apitest-coverage="docker compose exec phpunit vendor/bin/phpunit --testdox --coverage-html coverage-result"
 alias forum-test="docker compose exec forum-api vendor/bin/phpunit --testdox"
+alias gotest="gotestsum --format=short --"
+alias hg-test="docker compose exec api go test"
+alias fukuri-test="docker compose exec fukuri-backend-app php artisan test --testdox"
+
+#go
+alias chat-api-build="docker compose up chat-api -d --build"
+alias ba-chat-build="docker compose up ba-chat -d --build"
 
 #launcher
-alias launcher='~/dev/ba/badev/launcher.sh'
+alias launcher='~/dev/badev-launcher/launcher.sh'
 
 ba-chat-test() {
 	docker compose -f docker-compose.yaml -f devops/docker-compose.test.yaml up --build --remove-orphans --detach --wait api
@@ -60,7 +72,7 @@ batch-bam() {
 
 badev-up() {
   cd ~/dev/ba/badev
-  docker compose up -d bamanager bamanager-bg big-advance-api ba-admin-frontend ba-admin-backend ba-idp xba-front ba-site-frontend minio
+  docker compose up bamanager big-advance-api ba-admin-frontend ba-admin-backend ba-idp xba-front ba-site-frontend minio chat-api ba-chat redis
 }
 
 badev-down() {
