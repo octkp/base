@@ -1,0 +1,17 @@
+ErrorException: Array to string conversion in /var/www/html/mk1/core/classes/database/query.php:360
+Stack trace:
+#0 /var/www/html/mk1/core/classes/database/query.php(360): {closure}()
+#1 /var/www/html/mk1/core/classes/database/query.php(554): Database_Query->build_where()
+#2 /var/www/html/mk1/core/classes/database/query.php(144): Database_Query->compile_select()
+#3 /var/www/html/mk1/core/classes/database/query.php(105): Database_Query->compile()
+#4 /var/www/html/app/classes/logic/app.php(515): Database_Query->execute()
+#5 /var/www/html/app/classes/task/hourly.php(26): Logic_App::export_ba_company_list()
+#6 /var/www/html/app/classes/task/common.php(32): Task_Hourly->execute()
+#7 /var/www/html/mk1/core/classes/task/coretask.php(117): Task_Common->run()
+#8 /var/www/html/mk1/core/classes/sentry.php(143): Task_Coretask::{closure}()
+#9 /var/www/html/mk1/core/classes/task/coretask.php(120): Sentry::span()
+#10 [internal function]: Task_Coretask::refine()
+#11 /var/www/html/mk1/bootstrap.php(201): forward_static_call_array()
+#12 /var/www/html/public/index.php(4): require('...')
+#13 /var/www/html/mk(3): include('...')
+#14 {main}

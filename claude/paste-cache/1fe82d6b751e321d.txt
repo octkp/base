@@ -1,0 +1,17 @@
+TypeError: Sentry\State\Scope::setTag(): Argument #2 ($value) must be of type string, null given, called in /var/www/html/packages/xbacore/classes/task/5min.php on line 214 and defined in /var/www/html/mk1/vendor/sentry/sentry/src/State/Scope.php:85
+Stack trace:
+#0 /var/www/html/packages/xbacore/classes/task/5min.php(214): Sentry\State\Scope->setTag()
+#1 /var/www/html/mk1/vendor/sentry/sentry/src/State/Hub.php(93): Xbacore\Task_5min->Xbacore\{closure}()
+#2 /var/www/html/mk1/vendor/sentry/sentry/src/functions.php(100): Sentry\State\Hub->withScope()
+#3 /var/www/html/packages/xbacore/classes/task/5min.php(247): Sentry\withScope()
+#4 /var/www/html/packages/xbacore/classes/task/5min.php(140): Xbacore\Task_5min->notify_charge_to_sentry()
+#5 /var/www/html/packages/xbacore/classes/task/5min.php(18): Xbacore\Task_5min->charge()
+#6 /var/www/html/packages/xbacore/classes/task/common.php(33): Xbacore\Task_5min->execute()
+#7 /var/www/html/mk1/core/classes/task/coretask.php(117): Xbacore\Task_Common->run()
+#8 /var/www/html/mk1/core/classes/sentry.php(143): Task_Coretask::{closure}()
+#9 /var/www/html/mk1/core/classes/task/coretask.php(120): Sentry::span()
+#10 [internal function]: Task_Coretask::refine()
+#11 /var/www/html/mk1/bootstrap.php(194): forward_static_call_array()
+#12 /var/www/html/public/index.php(4): require('...')
+#13 /var/www/html/mk(3): include('...')
+#14 {main}

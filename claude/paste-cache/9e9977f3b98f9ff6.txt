@@ -1,0 +1,30 @@
+SELECT (select)                                Planning Time = 0.096;
+Triggers = [];
+Execution Time = 789962.531;
+
+AGGREGATE (aggregate)        1    1    564449.62    789962.501    564449.61    789962.5    Strategy = Plain;
+Partial Mode = Simple;
+Parallel Aware = false;
+Async Capable = false;
+Plan Width = 8;
+Actual Loops = 1;
+
+BITMAP_INDEX_SCAN (Bitmap Heap Scan)     table: files;    288    0    564448.89    789962.497    5140.35    789962.496    Parent Relationship = Outer;
+Parallel Aware = false;
+Async Capable = false;
+Alias = files;
+Plan Width = 0;
+Actual Loops = 1;
+Recheck Cond = (file_bank_code = '0158'::text);
+Rows Removed by Index Recheck = 0;
+Filter = ((file_purpose = 'CHAT_REMARK_ATTACHMENT_FILE'::text) AND (file_created_at >= CURRENT_DATE));
+Rows Removed by Filter = 78930;
+Exact Heap Blocks = 68003;
+Lossy Heap Blocks = 0;
+
+BITMAP_INDEX_SCAN (bitmap index scan)     index: files_file_bank_code_file_origin_file_id_idx;    172762    78930    5140.28    12.412    0.0    12.411    Parent Relationship = Outer;
+Parallel Aware = false;
+Async Capable = false;
+Plan Width = 0;
+Actual Loops = 1;
+Index Cond = (file_bank_code = '0158'::text);

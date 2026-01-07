@@ -1,0 +1,40 @@
+    
+ERROR
+str    
+2026-01-14 18:24:44 [696760dbe5d01] - ERROR :  ErrorException: pg_query_params(): Query failed: ERROR:  duplicate key value violates unique constraint "charges_charge_company_id_charge_year_charge_month_key"
+DETAIL:  Key (charge_company_id, charge_year, charge_month)=(123902124, 2026, 1) already exists. in /var/www/html/mk1/core/classes/database/connection.php:178
+Stack trace:
+#0 [internal function]: {closure}()
+#1 /var/www/html/mk1/core/classes/database/connection.php(178): pg_query_params()
+#2 /var/www/html/mk1/core/classes/sentry.php(143): Database_Connection->{closure}()
+#3 /var/www/html/mk1/core/classes/database/connection.php(201): Sentry::span()
+#4 /var/www/html/mk1/core/classes/database/query.php(117): Database_Connection->query()
+#5 /var/www/html/mk1/core/classes/model.php(536): Database_Query->execute()
+#6 /var/www/html/packages/xbacore/classes/model/charge.php(531): Model->save()
+#7 /var/www/html/packages/xbacore/classes/model/charge.php(724): Xbacore\Model_Charge->create_charge()
+#8 /var/www/html/packages/xbacore/classes/task/5min.php(149): Xbacore\Model_Charge->create_this_annual_charges()
+#9 /var/www/html/packages/xbacore/classes/task/5min.php(18): Xbacore\Task_5min->charge()
+#10 /var/www/html/packages/xbacore/classes/task/common.php(33): Xbacore\Task_5min->execute()
+#11 /var/www/html/mk1/core/classes/task/coretask.php(117): Xbacore\Task_Common->run()
+#12 /var/www/html/mk1/core/classes/sentry.php(143): Task_Coretask::{closure}()
+#13 /var/www/html/mk1/core/classes/task/coretask.php(120): Sentry::span()
+#14 [internal function]: Task_Coretask::refine()
+#15 /var/www/html/mk1/bootstrap.php(201): forward_static_call_array()
+#16 /var/www/html/public/index.php(4): require('...')
+#17 /var/www/html/mk(3): include('...')
+#18 {main}
+Next DatabaseQueryError: pg_query_params(): Query failed: ERROR:  duplicate key value violates unique constraint "charges_charge_company_id_charge_year_charge_month_key"
+DETAIL:  Key (charge_company_id, charge_year, charge_month)=(123902124, 2026, 1) already exists. in /var/www/html/mk1/core/classes/database/query.php:127
+Stack trace:
+#0 /var/www/html/mk1/core/classes/model.php(536): Database_Query->execute()
+#1 /var/www/html/packages/xbacore/classes/model/charge.php(531): Model->save()
+#2 /var/www/html/packages/xbacore/classes/model/charge.php(724): Xbacore\Model_Charge->create_charge()
+#3 /var/www/html/packages/xbacore/classes/task/5min.php(149): Xbacore\Model_Charge->create_this_annual_charges()
+#4 /var/www/html/packages/xbacore/classes/task/5min.php(18): Xbacore\Task_5min->charge()
+#5 /var/www/html/packages/xbacore/classes/task/common.php(33): Xbacore\Task_5min->execute()
+#6 /var/www/html/mk1/core/classes/task/coretask.php(117): Xbacore\Task_Common->run()
+#7 /var/www/html/mk1/core/classes/sentry.php(143): Task_Coretask::{closure}()
+#8 /var/www/html/mk1/core/classes/task/coretask.php(120): Sentry::span()
+#9 [internal function]: Task_Coretask::refine()
+#10 /var/www/html/mk1/bootstrap.php(201): forward_static_call_array()
+#11 /var/www/html/public/index.php(4): require('...')

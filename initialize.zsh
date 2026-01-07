@@ -22,6 +22,10 @@ if [ ! -e "$HOME/.config/nvim" ]; then
   ln -fs "$HOME/dotfiles/nvim/" "$HOME/.config/nvim"
 fi
 
+if [ ! -e "$HOME/.claude" ]; then
+  ln -fs "$HOME/dotfiles/claude/" "$HOME/.claude"
+fi
+
 if [ ! -e "$HOME/.Brewfile" ]; then
   cp "$HOME/dotfiles/brew/Brewfile" "$HOME/Brewfile"
 fi

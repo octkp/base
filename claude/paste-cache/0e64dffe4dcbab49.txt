@@ -1,0 +1,15 @@
+このブランチBAX-10325で修正したコードについて、以下のURIで叩かれるAPIにどのような影響があるか調査してクレメンス                                                                                                                  
+  KTBA,　HGBA, OKBAというのは特殊カスタマイズ（ポータル）のあるBAで、それぞれが叩いてるAPIに対して適切に修正できているか。修正が漏れていないかを知りたいンゴ                                                                       
+                                                                                                                                                                                                                                   
+  - KTBAは                                                                                                                                                                                                                         
+  - 企業情報取得：`/api/v1/company/search`                                                                                                                                                                                         
+  - アップグレード：`/api/v1/ktba/portal/companyregister/upgrade`                                                                                                                                                                  
+  - ダウングレード：`/api/v1/company/unsubscribe`                                                                                                                                                                                  
+  - HGBA                                                                                                                                                                                                                           
+  - 企業情報取得：`/api/v1/company/search`                                                                                                                                                                                         
+  - アップグレード：`/api/v1/hgba/portal/companyregister/upgrade`                                                                                                                                                                  
+  - ダウングレード：`/api/v1/company/unsubscribe`                                                                                                                                                                                  
+  - OKBA                                                                                                                                                                                                                           
+  - 企業情報取得：`/api/v1/company/search`                                                                                                                                                                                         
+  - アップグレード：`/api/v1/companyregister/upgrade`                                                                                                                                                                              
+  - ダウングレード：`/api/v1/company/unsubscribe`

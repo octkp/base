@@ -1,0 +1,71 @@
+{
+  "version": 2,
+  "plugins": {
+    "commit-commands@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/takano_y/.claude/plugins/cache/claude-plugins-official/commit-commands/e30768372b41",
+        "version": "e30768372b41",
+        "installedAt": "2025-12-25T00:15:54.840Z",
+        "lastUpdated": "2026-01-21T05:42:28.399Z"
+      }
+    ],
+    "code-review@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/takano_y/.claude/plugins/cache/claude-plugins-official/code-review/e30768372b41",
+        "version": "e30768372b41",
+        "installedAt": "2025-12-25T00:18:45.060Z",
+        "lastUpdated": "2026-01-21T05:42:28.408Z"
+      }
+    ],
+    "sample@company-plugins": [
+      {
+        "scope": "project",
+        "projectPath": "/Users/takano_y/dev/claude-code-marketplace",
+        "installPath": "/Users/takano_y/.claude/plugins/cache/company-plugins/sample/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2025-12-25T12:54:42.134Z",
+        "lastUpdated": "2025-12-25T12:54:42.134Z"
+      }
+    ],
+    "example-skills@anthropic-agent-skills": [
+      {
+        "scope": "user",
+        "installPath": "/Users/takano_y/.claude/plugins/cache/anthropic-agent-skills/example-skills/unknown",
+        "version": "unknown",
+        "installedAt": "2025-12-25T12:59:22.799Z",
+        "lastUpdated": "2025-12-25T12:59:22.799Z"
+      }
+    ],
+    "atlassian@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/takano_y/.claude/plugins/cache/claude-plugins-official/atlassian/7caef65e1070",
+        "version": "7caef65e1070",
+        "installedAt": "2025-12-25T13:40:18.876Z",
+        "lastUpdated": "2026-01-18T06:07:54.225Z",
+        "gitCommitSha": "c2625747baa8863ed7ca0f9f1f320d7a8ea1d928"
+      }
+    ],
+    "Notion@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/takano_y/.claude/plugins/cache/claude-plugins-official/Notion/0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2025-12-25T13:45:54.099Z",
+        "lastUpdated": "2026-01-23T22:39:25.087Z",
+        "gitCommitSha": "a7d0b05ca3f910c71dba56d4062ba781ae092e78"
+      }
+    ],
+    "slack@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/takano_y/.claude/plugins/cache/claude-plugins-official/slack/e30768372b41",
+        "version": "e30768372b41",
+        "installedAt": "2025-12-25T13:48:55.985Z",
+        "lastUpdated": "2026-01-21T05:42:28.420Z"
+      }
+    ]
+  }
+}

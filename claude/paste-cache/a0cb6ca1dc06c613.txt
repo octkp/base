@@ -1,0 +1,33 @@
+[2026-01-08 19:58:45] cuba_test7.public> INSERT INTO charges (
+                                                             charge_company_id,
+                                                             charge_env,
+                                                             charge_status,
+                                                             charge_type,
+                                                             charge_date,
+                                                             charge_year,
+                                                             charge_month,
+                                                             charge_period_start_date,
+                                                             charge_period_end_date,
+                                                             charge_amount_excluding_tax,
+                                                             charge_tax_amount,
+                                                             charge_amount,
+                                                             charge_execute_at
+                                         ) VALUES (
+                                                  current_setting('v.company_id')::int,
+                                                  'test7',                                          -- 環境
+                                                  'OK',                                             -- 決済済み
+                                                  'ANNUAL',                                         -- 年払い
+                                                  current_setting('v.charge_start_at')::date,       -- 課金日
+                                                  2025,                                             -- 課金年
+                                                  1,                                                -- 課金月
+                                                  current_setting('v.charge_period_start_date')::date,  -- 契約期間開始
+                                                  current_setting('v.charge_period_end_date')::date,    -- 契約期間終了
+                                                  33000,                                            -- 課金金額（税抜）
+                                                  3300,                                             -- 消費税
+                                                  36300,                                            -- 課金金額（税込）
+                                                  current_setting('v.charge_start_at')::timestamp  -- 決済実行日
+                                                  )
+[2026-01-08 19:58:45] [25P02] ERROR: current transaction is aborted, commands ignored until end of transaction block
+[2026-01-08 19:58:45] [42804] ERROR: column "charge_execute_at" is of type timestamp without time zone but expression is of type text
+[2026-01-08 19:58:45] ヒント: You will need to rewrite or cast the expression.
+[2026-01-08 19:58:45] 位置: 1330

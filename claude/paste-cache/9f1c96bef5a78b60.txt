@@ -1,0 +1,17 @@
+>  docker compose run --rm xba env | grep SENTRY
+WARN[0000] /Users/takano_y/dev/ba/badev/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+WARN[0000] The "E" variable is not set. Defaulting to a blank string.
+WARN[0000] Found orphan containers ([badev-big-advance-api-backend-run-a84da0689edb]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up.
+[+] Creating 9/9
+ ✔ Container badev-nginx-1                    Running0.0s
+ ✔ Container badev-db-1                       Running0.0s
+ ✔ Container badev-memcached-1                Running0.0s
+ ✔ Container badev-redis-1                    Running0.0s
+ ✔ Container badev-ba-admin-1                 Running0.0s
+ ✔ Container badev-big-advance-api-backend-1  Running0.0s
+ ✔ Container badev-ba-idp-1                   Running0.0s
+ ✔ Container badev-bamanager-1                Running0.0s
+ ✔ Container badev-big-advance-api-1          Running0.0s
+[+] Running 1/1
+ ✔ Container badev-big-advance-api-composer-1  Started0.2s
+SENTRY_DSN=https://b3106d032d5b9d59da64cd8cea5e5edc@o408639.ingest.us.sentry.io/4510554792394752

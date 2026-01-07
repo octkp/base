@@ -1,0 +1,30 @@
+[root@da842c5c55bf html]# export SENTRY_DSN=https://b3106d032d5b9d59da64cd8cea5e5edc@o408639.ingest.us.sentry.io/4510554792394752 
+[root@da842c5c55bf html]# env | grep SENTRY_DSN
+SENTRY_DSN=https://b3106d032d5b9d59da64cd8cea5e5edc@o408639.ingest.us.sentry.io/4510554792394752
+[root@da842c5c55bf html]# ./mk refine 5min 
+[20-Jan-2026 17:30:05 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:05 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:05 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:05 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:05 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:05 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:05 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:05 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:05 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:05 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:05 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:05 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[root@da842c5c55bf html]# ./mk refine 5min 
+[20-Jan-2026 17:30:19 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:20 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:20 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:20 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:20 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:20 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:20 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:20 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:20 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:20 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:20 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[20-Jan-2026 17:30:20 Asia/Tokyo] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[root@da842c5c55bf html]# 
