@@ -1,8 +1,9 @@
 # フォント設定（複数指定でフォールバック）
 font-family = JetBrainsMono Nerd Font
 font-style = Medium
-font-family = YuGothic
-font-size = 20
+font-family = Hiragino Sans
+font-size = 16
+adjust-cell-height = -2
 
 # テーマ
 theme = IR Black
