@@ -18,10 +18,6 @@ if [ ! -e "$HOME/.config/git" ]; then
   ln -fs "$HOME/dotfiles/git/" "$HOME/.config/git"
 fi
 
-if [ ! -e "$HOME/.config/nvim" ]; then
-  ln -fs "$HOME/dotfiles/nvim/" "$HOME/.config/nvim"
-fi
-
 if [ ! -e "$HOME/.claude" ]; then
   ln -fs "$HOME/dotfiles/claude/" "$HOME/.claude"
 fi
