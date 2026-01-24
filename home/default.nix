@@ -42,7 +42,6 @@
     ".config/ghostty/config".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/ghostty/config";
 
     # 便利なエイリアスへのシンボリックリンク
-    "zalias".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh/alias.zsh";
     "kalias".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh/kokopelli_alias.zsh";
   };
 

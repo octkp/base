@@ -35,7 +35,7 @@
 
       # 開発用シェル
       devShells.${system}.default = pkgs.mkShell {
-        packages = with pkgs; [ nil nixfmt-classic ];
+        packages = with pkgs; [ nil nixfmt ];
       };
     };
 }
