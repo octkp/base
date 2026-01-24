@@ -41,6 +41,9 @@
     # Ghostty設定
     ".config/ghostty/config".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/ghostty/config";
 
+    # pgcli設定
+    ".config/pgcli/config".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/pgcli/config";
+
     # 便利なエイリアスへのシンボリックリンク
     "kalias".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh/kokopelli_alias.zsh";
   };
