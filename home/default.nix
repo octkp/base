@@ -35,6 +35,9 @@
     ".config/zsh/kokopelli_alias.zsh".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh/kokopelli_alias.zsh";
     ".config/zsh/f.zsh".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh/f.zsh";
 
+    # zeno.zsh設定
+    ".config/zeno/config.ts".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zeno/config.ts";
+
     # 便利なエイリアスへのシンボリックリンク
     "zalias".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh/alias.zsh";
     "kalias".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh/kokopelli_alias.zsh";
