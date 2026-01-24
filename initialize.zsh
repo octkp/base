@@ -18,6 +18,18 @@ if [ ! -e "$HOME/.config/git" ]; then
   ln -fs "$HOME/dotfiles/git/" "$HOME/.config/git"
 fi
 
+if [ ! -e "$HOME/.config/zed/settings.json" ]; then
+  ln -fs "$HOME/dotfiles/zed/settings.json" "$HOME/.config/zed/settings.json"
+fi
+
+if [ ! -e "$HOME/.config/zed/keymap.json" ]; then
+  ln -fs "$HOME/dotfiles/zed/keymap.json" "$HOME/.config/zed/keymap.json"
+fi
+
+if [ ! -e "$HOME/.config/zed/tasks.json" ]; then
+  ln -fs "$HOME/dotfiles/zed/tasks.json" "$HOME/.config/zed/tasks.json"
+fi
+
 if [ ! -e "$HOME/.claude" ]; then
   ln -fs "$HOME/dotfiles/claude/" "$HOME/.claude"
 fi
