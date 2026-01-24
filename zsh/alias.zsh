@@ -37,17 +37,13 @@ alias dc="docker compose"
 alias horobi="docker compose down --rmi all --volumes --remove-orphans"
 alias dcr="docker compose rm -fsv"
 
-# sail
-# alias sail="bash sail"
-alias sail="vendor/bin/sail"
-
 # zsh
 alias zsh="nvim ~/.zshrc"
 alias load="source ~/.zshrc"
 alias zalias="nvim ~/zalias"
 
 # cloude code
-alias cc="claude"
+alias c="claude"
 
 # brewfile
 # 現在インストールされているHomebrewのパッケージを Brewfile にエクスポートします。これにより、後で同じパッケージを再インストールするのが簡単になります。
