@@ -1,0 +1,22 @@
+# フォント設定（複数指定でフォールバック）
+font-family = JetBrainsMono Nerd Font
+font-style = Medium
+font-family = YuGothic
+font-size = 20
+
+# テーマ
+theme = TokyoNight Night
+
+
+
+# ウィンドウ設定
+window-padding-x = 10
+window-padding-y = 10
+window-width = 100
+window-height = 28
+
+# タブバー設定
+window-show-tab-bar = always
+
+# macOS固有設定
+macos-option-as-alt = true
