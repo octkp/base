@@ -1,14 +1,30 @@
-.PHONY: switch update clean check fmt
+.PHONY: switch update clean check fmt preflight
 
 # ユーザー名を自動取得
 USERNAME := $(shell whoami)
 
+# 事前チェック（dotfiles内ファイルがシンボリックリンクで上書きされる問題を防止）
+preflight:
+	@if [ -L ~/.config/zsh ]; then \
+		echo "エラー: ~/.config/zsh がシンボリックリンクです。"; \
+		echo "rm ~/.config/zsh && mkdir -p ~/.config/zsh を実行してください。"; \
+		exit 1; \
+	fi
+	@for f in zsh/kokopelli_alias.zsh zsh/f.zsh; do \
+		if [ -L "$(PWD)/$$f" ]; then \
+			echo "エラー: $$f がシンボリックリンクになっています。"; \
+			echo "git checkout -- $$f で復元してください。"; \
+			exit 1; \
+		fi; \
+	done
+	@echo "チェック完了: 問題ありません"
+
 # 設定を適用
-switch:
+switch: preflight
 	home-manager switch --flake .#$(USERNAME)
 
 # flake.lock を更新して適用
-update:
+update: preflight
 	nix flake update
 	home-manager switch --flake .#$(USERNAME)
 

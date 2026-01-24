@@ -17,7 +17,7 @@
     # 環境変数
     sessionVariables = {
       LANG = "ja_JP.UTF-8";
-      EDITOR = "nvim";
+      EDITOR = "vim";
     };
   };
 
