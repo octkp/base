@@ -97,6 +97,19 @@
 
         # カスタムスクリプト読み込み
         [[ -f ~/.config/zsh/kokopelli_alias.zsh ]] && source ~/.config/zsh/kokopelli_alias.zsh
+
+        # zeno.zsh 設定
+        export ZENO_HOME="$HOME/.config/zeno"
+        export ZENO_ENABLE_SOCK=1
+        # zeno.zsh キーバインド
+        if type zeno > /dev/null 2>&1; then
+          bindkey ' ' zeno-auto-snippet
+          bindkey '^m' zeno-auto-snippet-and-accept-line
+          bindkey '^i' zeno-completion
+          bindkey '^g' zeno-ghq-cd
+          bindkey '^r' zeno-history-selection
+          bindkey '^x^s' zeno-insert-snippet
+        fi
       ''
     ];
 
@@ -116,6 +129,16 @@
         name = "zsh-syntax-highlighting";
         src = pkgs.zsh-syntax-highlighting;
         file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
+      }
+      {
+        name = "zeno";
+        src = pkgs.fetchFromGitHub {
+          owner = "yuki-yano";
+          repo = "zeno.zsh";
+          rev = "82bb15e6410095883f28d92025a61937fa80aa09";
+          sha256 = "sha256-+sDhfZIqQNoDbfA1uNIiS2rl8U6cWtPD4Z14TAec9kw=";
+        };
+        file = "zeno.zsh";
       }
     ];
   };
