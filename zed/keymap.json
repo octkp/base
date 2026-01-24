@@ -52,4 +52,10 @@
       "cmd-`": "projects::OpenRecent",
     },
   },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-p": "file_finder::Toggle",
+    },
+  },
 ]
