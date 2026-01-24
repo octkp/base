@@ -1,0 +1,6 @@
+{
+  "buffer_font_family": ".ZedMono",
+  "theme": "JetBrains Dark",
+  "base_keymap": "JetBrains",
+  "autosave": "on_focus_change",
+}
