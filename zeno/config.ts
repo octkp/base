@@ -59,7 +59,7 @@ export default defineConfig(() => ({
     {
       name: "docker compose",
       keyword: "dc",
-      snippet: "docker compose ",
+      snippet: "docker compose",
     },
     {
       name: "docker compose up",
@@ -110,7 +110,7 @@ export default defineConfig(() => ({
     {
       name: "claude",
       keyword: "cl",
-      snippet: "claude ",
+      snippet: "claude",
     },
   ],
 
