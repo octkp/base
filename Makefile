@@ -1,4 +1,4 @@
-.PHONY: switch update clean check fmt preflight
+.PHONY: switch update clean check fmt preflight iterm2-save iterm2-apply
 
 # ユーザー名を自動取得
 USERNAME := $(shell whoami)
@@ -48,3 +48,16 @@ generations:
 # 初期セットアップ
 bootstrap:
 	./scripts/bootstrap.sh
+
+# iTerm2設定を保存
+iterm2-save:
+	@echo "iTerm2の設定を保存しています..."
+	plutil -convert xml1 ~/Library/Preferences/com.googlecode.iterm2.plist -o $(PWD)/iterm2/com.googlecode.iterm2.plist
+	@echo "保存完了: iterm2/com.googlecode.iterm2.plist"
+
+# iTerm2設定を適用
+iterm2-apply:
+	@echo "iTerm2の設定を適用しています..."
+	@echo "※ iTerm2を閉じてから実行してください"
+	cp $(PWD)/iterm2/com.googlecode.iterm2.plist ~/Library/Preferences/
+	@echo "適用完了。iTerm2を起動してください。"

@@ -29,14 +29,6 @@
 
     # 初期化スクリプト
     initContent = lib.mkMerge [
-      # 最初に実行される部分（Powerlevel10k instant prompt）
-      (lib.mkBefore ''
-        # Enable Powerlevel10k instant prompt
-        if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-          source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-        fi
-      '')
-
       # メイン初期化
       ''
         # setopt 設定
@@ -92,11 +84,13 @@
         # Composer
         export PATH=$HOME/.composer/vendor/bin:$PATH
 
-        # Powerlevel10k
-        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
         # カスタムスクリプト読み込み
         [[ -f ~/.config/zsh/kokopelli_alias.zsh ]] && source ~/.config/zsh/kokopelli_alias.zsh
+
+        # プロンプト前に区切り線を表示
+        precmd() {
+          print -P "%F{#64748b}''${(r:$COLUMNS::─:)}%f"
+        }
 
         # zeno.zsh 設定
         export ZENO_HOME="$HOME/.config/zeno"
@@ -115,11 +109,6 @@
 
     # プラグイン
     plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
       {
         name = "zsh-autosuggestions";
         src = pkgs.zsh-autosuggestions;

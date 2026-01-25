@@ -58,4 +58,10 @@
       "cmd-p": "file_finder::Toggle",
     },
   },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-shift-k": "zed::OpenKeymap"
+    }
+  }
 ]

@@ -7,6 +7,7 @@
     ./git.nix
     ./programs/fzf.nix
     ./programs/bat.nix
+    ./programs/starship.nix
   ];
 
   home = {
