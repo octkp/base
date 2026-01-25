@@ -31,6 +31,9 @@
       pull.rebase = false;
       init.defaultBranch = "main";
 
+      # ghq設定
+      ghq.root = "~/ghq";
+
       # GitHub CLI 認証
       credential = {
         "https://github.com" = {

@@ -32,5 +32,35 @@
         echo "Error: ~/.Brewfile not found"
       fi
     }
+
+    # ghq + gwq + fzf でリポジトリ/worktree を選択して移動
+    repo() {
+      local selected
+      selected=$(
+        { ghq list --full-path; gwq list --full-path 2>/dev/null; } | sort -u | \
+        fzf --preview 'eza -la --icons --git {}'
+      )
+      if [ -n "$selected" ]; then
+        cd "$selected"
+      fi
+    }
+
+    # gwq でworktreeを作成
+    wt-add() {
+      if [ -z "$1" ]; then
+        echo "Usage: wt-add <branch-name>"
+        return 1
+      fi
+      gwq add "$1"
+    }
+
+    # gwq でworktreeを削除（fzfで選択）
+    wt-rm() {
+      local selected
+      selected=$(gwq list --full-path 2>/dev/null | fzf --preview 'eza -la --icons --git {}')
+      if [ -n "$selected" ]; then
+        gwq remove "$selected"
+      fi
+    }
   '';
 }

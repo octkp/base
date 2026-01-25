@@ -1,0 +1,6 @@
+# gwq設定
+# worktreeのルートディレクトリをghqと同じにする
+root = "~/ghq"
+
+# 命名規則: host/owner/repo=branch の形式
+naming = "{{.Host}}/{{.Owner}}/{{.Repository}}={{.Branch}}"

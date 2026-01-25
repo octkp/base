@@ -13,6 +13,7 @@
     fd                  # find の改良版
     fzf                 # ファジーファインダー
     gh                  # GitHub CLI
+    ghq                 # リポジトリ管理
     git
     jq                  # JSON プロセッサ
     neovim

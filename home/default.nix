@@ -45,6 +45,9 @@
     # pgcli設定
     ".config/pgcli/config".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/pgcli/config";
 
+    # gwq設定
+    ".config/gwq/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/gwq/config.toml";
+
     # 便利なエイリアスへのシンボリックリンク
     "kalias".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh/kokopelli_alias.zsh";
   };
