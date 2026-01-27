@@ -34,7 +34,6 @@
 
     # カスタムzshスクリプト（会社固有など）
     ".config/zsh/kokopelli_alias.zsh".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh/kokopelli_alias.zsh";
-    ".config/zsh/f.zsh".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh/f.zsh";
 
     # zeno.zsh設定
     ".config/zeno/config.ts".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zeno/config.ts";

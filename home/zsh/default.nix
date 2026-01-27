@@ -5,6 +5,7 @@
   imports = [
     ./aliases.nix
     ./functions.nix
+    ./variables.nix
   ];
 
   programs.zsh = {
