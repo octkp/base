@@ -16,6 +16,9 @@ stats-cache.json
 statsig/
 telemetry/
 todos/
+tasks/
+paste-cache/
+cache/
 
 # プロジェクト固有の設定（ローカル環境依存）
 projects/
