@@ -1,6 +1,7 @@
-# gwq設定
-# worktreeのルートディレクトリをghqと同じにする
-root = "~/ghq"
+# [worktree] という「見出し」が必要です
+[worktree]
+basedir = "~/ghq"
 
-# 命名規則: host/owner/repo=branch の形式
-naming = "{{.Host}}/{{.Owner}}/{{.Repository}}={{.Branch}}"
+# [naming] という「見出し」の下に template を書きます
+[naming]
+template = "{{.Host}}/{{.Owner}}/{{.Repository}}={{.Branch}}"

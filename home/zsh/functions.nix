@@ -69,18 +69,6 @@
       gwq add -b "$1" -s
     }
 
-    # gwq でworktreeを削除（fzfで選択）
-    wt-rm() {
-      local selected
-      # --full-path は外して、標準のリスト（リポジトリ=ブランチ形式）を使う
-      selected=$(gwq list 2>/dev/null | fzf --prompt="Delete worktree > ")
-
-      if [ -n "$selected" ]; then
-        # selected には "owner/repo=branch" が入るので、そのまま remove に渡せる
-        gwq remove "$selected"
-      fi
-    }
-
     # インタラクティブファイルナビゲーター
     f() {
       local current_dir selection
