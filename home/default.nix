@@ -47,6 +47,9 @@
     # gwq設定
     ".config/gwq/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/gwq/config.toml";
 
+    # Hammerspoon設定
+    ".hammerspoon".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/hammerspoon";
+
     # 便利なエイリアスへのシンボリックリンク
     "kalias".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh/kokopelli_alias.zsh";
   };
