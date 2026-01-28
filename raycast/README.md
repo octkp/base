@@ -14,6 +14,7 @@ Raycast用のカスタムスクリプトコマンド集。
 |---------|------|
 | `launcher` | badev-launcherをiTerm2で起動 |
 | `note` | クイックノートを保存（オプションでZedで開く） |
+| `AWS SSO Login` | AWS SSOログインを実行（プロファイル選択式） |
 
 ## 使い方
 
@@ -27,6 +28,13 @@ Raycastで「note」と入力し、メモ内容を入力して実行。
 
 - `~/dotfiles/note/` に `YYYYMMDD-HHMMSS.md` 形式で保存
 - 第2引数で「open」を選択するとZedで開く
+
+### AWS SSO Login
+
+Raycastで「AWS SSO Login」と入力し、プロファイルを選択して実行。
+
+- `ba_developers`、`koko`、`xba` から選択可能
+- ブラウザが開きSSOログインが実行される
 
 ## スクリプトの追加方法
 
