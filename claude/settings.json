@@ -64,7 +64,8 @@
   "skills": [
     "/Users/takano_y/.claude/skills/migration-rollback",
     "/Users/takano_y/.claude/skills/sql-generator",
-    "/Users/takano_y/.claude/skills/code-to-rollback-sql"
+    "/Users/takano_y/.claude/skills/code-to-rollback-sql",
+    "/Users/takano_y/ghq/github.com/kokopelli-inc/badev-knowledge-base/docs/takano/note/skills/daily-summary"
   ],
   "feedbackSurveyState": {
     "lastShownTime": 1754036262396

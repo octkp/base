@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "WebSearch",
-      "WebFetch(domain:www.hammerspoon.org)"
+      "WebFetch(domain:www.hammerspoon.org)",
+      "Bash(zip:*)"
     ]
   }
 }

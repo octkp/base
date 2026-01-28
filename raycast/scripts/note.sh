@@ -14,7 +14,7 @@
 # Documentation:
 # @raycast.description クイックノートを保存
 
-DOCS_DIR="$HOME/dotfiles/note"
+DOCS_DIR="$HOME/dotfiles/note/memo"
 TIMESTAMP=$(date +"%Y%m%d-%H%M%S")
 FILENAME="${DOCS_DIR}/${TIMESTAMP}.md"
 
