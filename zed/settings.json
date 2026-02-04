@@ -1,4 +1,5 @@
 {
+  "format_on_save": "off",
   "buffer_font_family": ".ZedMono",
   "theme": "Modus Vivendi Deuteranopia",
   "base_keymap": "JetBrains",
