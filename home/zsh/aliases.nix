@@ -29,5 +29,11 @@
 
     # home-manager
     hm-switch = "home-manager switch --flake ~/dotfiles";
+
+    # zed
+    z = "zed .";
+
+    #dotfiles
+    d = "cd ~/dotfiles";
   };
 }
