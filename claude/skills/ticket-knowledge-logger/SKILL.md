@@ -1,6 +1,6 @@
 ---
 name: ticket-knowledge-logger
-description: チケット番号（BAX-XXXX）とカテゴリ（investigations/Implementations/others）を指定して、会話ログとまとめファイルを記録するスキル。「BAX-10325のinvestigationsを記録」「Implementationsにチケット作成」「会話ログを保存」などのリクエストで使用。
+description: チケット番号（BAX-XXXX）とカテゴリ（調査/実装/その他）を指定して、会話ログとまとめファイルを記録するスキル。「BAX-10325の調査を記録」「実装にチケット作成」「会話ログを保存」などのリクエストで使用。
 ---
 
 # Ticket Knowledge Logger
@@ -15,9 +15,9 @@ description: チケット番号（BAX-XXXX）とカテゴリ（investigations/Im
 
 | カテゴリ | 用途 | パス |
 |---------|------|------|
-| investigations | バグ調査、原因特定、コード解析 | `{base}/investigations/BAX-XXXX/` |
-| Implementations | 機能実装、コード変更、リファクタリング | `{base}/Implementations/BAX-XXXX/` |
-| others | その他の作業、ドキュメント作成など | `{base}/others/BAX-XXXX/` |
+| 調査 | バグ調査、原因特定、コード解析 | `{base}/調査/BAX-XXXX_{チケット名}/` |
+| 実装 | 機能実装、コード変更、リファクタリング | `{base}/実装/BAX-XXXX_{チケット名}/` |
+| その他 | その他の作業、ドキュメント作成など | `{base}/その他/BAX-XXXX_{チケット名}/` |
 
 ### 作成されるファイル
 
@@ -32,18 +32,30 @@ description: チケット番号（BAX-XXXX）とカテゴリ（investigations/Im
 
 ユーザーから以下の情報を受け取る:
 
-- **カテゴリ**: `investigations` / `Implementations` / `others`
+- **カテゴリ**: `調査` / `実装` / `その他`
 - **チケット番号**: `BAX-XXXX` 形式
 
-### 2. ディレクトリ作成
+### 2. JIRAからチケット名を取得
+
+チケット番号からJIRAのチケットページにアクセスし、チケット名（Summary）を取得する。
+
+- **URL**: `https://kokopelli-inc.atlassian.net/browse/{チケット番号}`
+- WebFetchツールでページにアクセスし、チケットのタイトル（Summary）を抽出する
+- 取得したチケット名はディレクトリ名に使用する（例: `BAX-10325_年払い対応`）
+- チケット名に含まれるファイルシステムで使えない文字（`/`, `\`, `:`, `*`, `?`, `"`, `<`, `>`, `|`）はアンダースコア `_` に置換する
+- JIRAにアクセスできない場合は、ユーザーにチケット名を直接聞く
+
+### 3. ディレクトリ作成
 
 ```bash
-mkdir -p /Users/takano_y/ghq/github.com/kokopelli-inc/badev-knowledge-base/docs/takano/{カテゴリ}/{チケット番号}
+mkdir -p /Users/takano_y/ghq/github.com/kokopelli-inc/badev-knowledge-base/docs/takano/{カテゴリ}/{チケット番号}_{チケット名}
 ```
 
-### 3. LOG.md 作成
+### 4. LOG.md 作成
 
 会話ログファイルを作成:
+
+**重要**: 日時は必ず `YYYY-MM-DD HH:MM` 形式で、**時刻（HH:MM）を省略せずに**記録すること。現在時刻は `date "+%Y-%m-%d %H:%M"` コマンドで取得できる。
 
 ```markdown
 # {チケット番号} 会話ログ
@@ -52,13 +64,13 @@ mkdir -p /Users/takano_y/ghq/github.com/kokopelli-inc/badev-knowledge-base/docs/
 
 - **チケット**: {チケット番号}
 - **カテゴリ**: {カテゴリ}
-- **作成日時**: {YYYY-MM-DD HH:MM}
+- **作成日時**: {YYYY-MM-DD HH:MM}  ← 例: 2026-02-05 14:30
 
 ---
 
 ## 会話ログ
 
-### {YYYY-MM-DD HH:MM} - セッション1
+### {YYYY-MM-DD HH:MM} - セッション1  ← 例: 2026-02-05 14:30 - セッション1
 
 #### 質問/タスク
 {ユーザーからの質問やタスクの内容}
@@ -71,11 +83,11 @@ mkdir -p /Users/takano_y/ghq/github.com/kokopelli-inc/badev-knowledge-base/docs/
 
 ---
 
-### {YYYY-MM-DD HH:MM} - セッション2
+### {YYYY-MM-DD HH:MM} - セッション2  ← 例: 2026-02-05 15:45 - セッション2
 ...
 ```
 
-### 4. README.md 作成
+### 5. README.md 作成
 
 まとめファイルを作成:
 
@@ -108,12 +120,13 @@ mkdir -p /Users/takano_y/ghq/github.com/kokopelli-inc/badev-knowledge-base/docs/
 
 ### 新規チケットの記録開始
 
-ユーザー: 「BAX-10325のinvestigationsを記録して」
+ユーザー: 「BAX-10325の調査を記録して」
 
 実行:
-1. `investigations/BAX-10325/` ディレクトリ作成
-2. `LOG.md` テンプレート作成
-3. `README.md` テンプレート作成
+1. `https://kokopelli-inc.atlassian.net/browse/BAX-10325` にアクセスしてチケット名を取得
+2. `調査/BAX-10325_{チケット名}/` ディレクトリ作成
+3. `LOG.md` テンプレート作成
+4. `README.md` テンプレート作成
 
 ### ログの追記
 
@@ -135,12 +148,13 @@ mkdir -p /Users/takano_y/ghq/github.com/kokopelli-inc/badev-knowledge-base/docs/
 
 | キーワード | カテゴリ |
 |-----------|---------|
-| 調査、バグ、原因、なぜ、エラー | investigations |
-| 実装、修正、追加、変更、リファクタ | Implementations |
-| ドキュメント、メモ、その他 | others |
+| 調査、バグ、原因、なぜ、エラー | 調査 |
+| 実装、修正、追加、変更、リファクタ | 実装 |
+| ドキュメント、メモ、その他 | その他 |
 
 ## 注意事項
 
 - ログは時系列で追記していく（上書きしない）
 - README.mdは調査/実装が完了したタイミングで更新
 - 機密情報（パスワード、API キー等）は記録しない
+- **日時は必ず時刻（HH:MM）まで記録すること**（例: `2026-02-05 14:30`、`2026-02-05` だけはNG）

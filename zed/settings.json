@@ -1,4 +1,6 @@
 {
+  "show_completions_on_input": false,
+  "show_inline_completions": false,
   "format_on_save": "off",
   "buffer_font_family": ".ZedMono",
   "theme": "Modus Vivendi Deuteranopia",

@@ -4,19 +4,19 @@
     "commit-commands@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/takano_y/.claude/plugins/cache/claude-plugins-official/commit-commands/e30768372b41",
-        "version": "e30768372b41",
+        "installPath": "/Users/takano_y/.claude/plugins/cache/claude-plugins-official/commit-commands/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-25T00:15:54.840Z",
-        "lastUpdated": "2026-01-21T05:42:28.399Z"
+        "lastUpdated": "2026-02-12T03:57:04.173Z"
       }
     ],
     "code-review@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/takano_y/.claude/plugins/cache/claude-plugins-official/code-review/e30768372b41",
-        "version": "e30768372b41",
+        "installPath": "/Users/takano_y/.claude/plugins/cache/claude-plugins-official/code-review/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-25T00:18:45.060Z",
-        "lastUpdated": "2026-01-21T05:42:28.408Z"
+        "lastUpdated": "2026-02-12T03:57:04.178Z"
       }
     ],
     "sample@company-plugins": [
@@ -41,10 +41,10 @@
     "atlassian@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/takano_y/.claude/plugins/cache/claude-plugins-official/atlassian/7caef65e1070",
-        "version": "7caef65e1070",
+        "installPath": "/Users/takano_y/.claude/plugins/cache/claude-plugins-official/atlassian/25068023d507",
+        "version": "25068023d507",
         "installedAt": "2025-12-25T13:40:18.876Z",
-        "lastUpdated": "2026-01-18T06:07:54.225Z",
+        "lastUpdated": "2026-02-12T03:56:10.979Z",
         "gitCommitSha": "c2625747baa8863ed7ca0f9f1f320d7a8ea1d928"
       }
     ],
@@ -61,10 +61,10 @@
     "slack@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/takano_y/.claude/plugins/cache/claude-plugins-official/slack/e30768372b41",
-        "version": "e30768372b41",
+        "installPath": "/Users/takano_y/.claude/plugins/cache/claude-plugins-official/slack/2cd88e7947b7",
+        "version": "2cd88e7947b7",
         "installedAt": "2025-12-25T13:48:55.985Z",
-        "lastUpdated": "2026-01-21T05:42:28.420Z"
+        "lastUpdated": "2026-02-12T03:57:04.184Z"
       }
     ]
   }
