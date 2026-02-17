@@ -45,18 +45,6 @@
       fi
     }
 
-    # ghq + gwq + fzf + claudeでリポジトリ/worktree を選択して移動
-    r() {
-      local selected
-      selected=$(
-        { ghq list --full-path; gwq list --full-path 2>/dev/null; } | sort -u | \
-        fzf --preview 'eza -la --icons --git {}'
-      )
-      if [ -n "$selected" ]; then
-        cd "$selected"
-      fi
-    }
-
     # gwq でworktreeを作成
     wt-add() {
       if [ -z "$1" ]; then
@@ -67,6 +55,95 @@
       # -b をつけることで、新規ブランチとして作成する
       # -s をつけることで、自動的にそのディレクトリに移動（cd）する
       gwq add -b "$1" -s
+    }
+
+    # docs/references/repos 内のリポジトリを fzf で選択して移動
+    rd() {
+      local base_dir="$HOME/ghq/github.com/kokopelli-inc/bigadvance-3.0-docs/references/repos"
+      local selected
+      selected=$(
+        for dir in "$base_dir"/*/; do
+          local name=$(basename "$dir")
+          local branch=$(git -C "$dir" branch --show-current 2>/dev/null || echo "?")
+          echo "$name\t($branch)"
+        done | column -t -s $'\t' | \
+        fzf --preview "eza -la --icons --git $base_dir/{1}" | \
+        awk '{print $1}'
+      )
+      if [ -n "$selected" ]; then
+        cd "$base_dir/$selected"
+      fi
+    }
+
+    # docs/references/repos 内のリポジトリを選択してブランチ切替 + 移動
+    rdb() {
+      local base_dir="$HOME/ghq/github.com/kokopelli-inc/bigadvance-3.0-docs/references/repos"
+      local selected
+      selected=$(
+        for dir in "$base_dir"/*/; do
+          local name=$(basename "$dir")
+          local branch=$(git -C "$dir" branch --show-current 2>/dev/null || echo "?")
+          echo "$name\t($branch)"
+        done | column -t -s $'\t' | \
+        fzf --preview "eza -la --icons --git $base_dir/{1}" | \
+        awk '{print $1}'
+      )
+      if [ -n "$selected" ]; then
+        local repo_dir="$base_dir/$selected"
+        local branches branch
+        branches=$(git -C "$repo_dir" branch --all | grep -v HEAD) &&
+        branch=$(echo "$branches" |
+                 fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+        git -C "$repo_dir" checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+        cd "$repo_dir"
+      fi
+    }
+
+    # Claude Code を起動時にランダムな言語設定で起動
+    c() {
+      local languages=(
+        "なんJ民"
+        "関西弁"
+        "お嬢様言葉"
+        "5ちゃんねる（専門板）風"
+        "阿部寛のホームページ風"
+        "VTuber風"
+        "体育会系（部活）"
+        "マフィア・ボス"
+        "RPGの村人"
+        "社畜・窓際族"
+        "ギャル語"
+        "武士語"
+        "厨二病"
+        "江戸っ子"
+        "翻訳機を通した怪しい日本語"
+        "薩摩弁"
+        "赤ちゃん（バブみ）"
+        "ツンデレ"
+        "メンヘラ（病み）"
+        "脳筋（マッスル）"
+        "ハードボイルド"
+        "裁判官（異議あり！）"
+        "実況アナウンサー"
+        "デスゲームの主催者"
+        "昔のギャルゲー（選択肢風）"
+        "昭和の頑固親父"
+        "怪文書"
+        "妹"
+        "幼馴染"
+        "魔法少女"
+        "ゴーレム（ゴゴ...しか言えない）"
+      )
+      local idx=$(( RANDOM % ''${#languages[@]} ))
+      local lang="''${languages[$idx + 1]}"
+      local settings="$HOME/.claude/settings.json"
+
+      if [[ -f "$settings" ]]; then
+        local tmp=$(jq --arg lang "$lang" '.language = $lang' "$settings")
+        echo "$tmp" > "$settings"
+      fi
+
+      claude "$@"
     }
 
     # インタラクティブファイルナビゲーター

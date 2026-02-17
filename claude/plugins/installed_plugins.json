@@ -4,19 +4,19 @@
     "commit-commands@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/takano_y/.claude/plugins/cache/claude-plugins-official/commit-commands/2cd88e7947b7",
-        "version": "2cd88e7947b7",
+        "installPath": "/Users/takano_y/.claude/plugins/cache/claude-plugins-official/commit-commands/261ce4fba4f2",
+        "version": "261ce4fba4f2",
         "installedAt": "2025-12-25T00:15:54.840Z",
-        "lastUpdated": "2026-02-12T03:57:04.173Z"
+        "lastUpdated": "2026-02-17T22:39:22.371Z"
       }
     ],
     "code-review@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/takano_y/.claude/plugins/cache/claude-plugins-official/code-review/2cd88e7947b7",
-        "version": "2cd88e7947b7",
+        "installPath": "/Users/takano_y/.claude/plugins/cache/claude-plugins-official/code-review/261ce4fba4f2",
+        "version": "261ce4fba4f2",
         "installedAt": "2025-12-25T00:18:45.060Z",
-        "lastUpdated": "2026-02-12T03:57:04.178Z"
+        "lastUpdated": "2026-02-17T22:39:22.361Z"
       }
     ],
     "sample@company-plugins": [
@@ -61,10 +61,10 @@
     "slack@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/takano_y/.claude/plugins/cache/claude-plugins-official/slack/2cd88e7947b7",
-        "version": "2cd88e7947b7",
+        "installPath": "/Users/takano_y/.claude/plugins/cache/claude-plugins-official/slack/261ce4fba4f2",
+        "version": "261ce4fba4f2",
         "installedAt": "2025-12-25T13:48:55.985Z",
-        "lastUpdated": "2026-02-12T03:57:04.184Z"
+        "lastUpdated": "2026-02-17T22:39:22.382Z"
       }
     ]
   }

@@ -46,6 +46,16 @@ function getGitDiffStats(cwd) {
   }
 }
 
+function getLanguage() {
+  try {
+    const settingsPath = require('path').join(require('os').homedir(), '.claude', 'settings.json');
+    const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf-8'));
+    return settings.language || null;
+  } catch {
+    return null;
+  }
+}
+
 function main() {
   try {
     const input = fs.readFileSync(0, 'utf-8');
@@ -56,6 +66,12 @@ function main() {
     // Model name
     if (data.model?.display_name) {
       parts.push(data.model.display_name);
+    }
+
+    // Language
+    const lang = getLanguage();
+    if (lang) {
+      parts.push(`lang: ${lang}`);
     }
 
     // Git branch (cwdから取得)

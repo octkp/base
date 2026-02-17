@@ -21,9 +21,6 @@
     # zsh設定
     load = "exec zsh";
 
-    # Claude
-    c = "claude";
-
     # その他
     repo = "cd ~/ghq/github.com";
 

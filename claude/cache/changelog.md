@@ -1,6 +1,43 @@
 # Changelog
 
-## 2.1.39
+## 2.1.45
+
+- Added support for Claude Sonnet 4.6
+- Added support for reading `enabledPlugins` and `extraKnownMarketplaces` from `--add-dir` directories
+- Added `spinnerTipsOverride` setting to customize spinner tips — configure `tips` with an array of custom tip strings, and optionally set `excludeDefault: true` to show only your custom tips instead of the built-in ones
+- Added `SDKRateLimitInfo` and `SDKRateLimitEvent` types to the SDK, enabling consumers to receive rate limit status updates including utilization, reset times, and overage information
+- Fixed Agent Teams teammates failing on Bedrock, Vertex, and Foundry by propagating API provider environment variables to tmux-spawned processes (anthropics/claude-code#23561)
+- Fixed sandbox "operation not permitted" errors when writing temporary files on macOS by using the correct per-user temp directory (anthropics/claude-code#21654)
+- Fixed Task tool (backgrounded agents) crashing with a `ReferenceError` on completion (anthropics/claude-code#22087)
+- Fixed autocomplete suggestions not being accepted on Enter when images are pasted in the input
+- Fixed skills invoked by subagents incorrectly appearing in main session context after compaction
+- Fixed excessive `.claude.json.backup` files accumulating on every startup
+- Fixed plugin-provided commands, agents, and hooks not being available immediately after installation without requiring a restart
+- Improved startup performance by removing eager loading of session history for stats caching
+- Improved memory usage for shell commands that produce large output — RSS no longer grows unboundedly with command output size
+- Improved collapsed read/search groups to show the current file or search pattern being processed beneath the summary line while active
+- [VSCode] Improved permission destination choice (project/user/session) to persist across sessions
+
+## 2.1.44
+
+- Fixed ENAMETOOLONG errors for deeply-nested directory paths
+- Fixed auth refresh errors
+
+## 2.1.43
+
+- Fixed AWS auth refresh hanging indefinitely by adding a 3-minute timeout
+- Fixed spurious warnings for non-agent markdown files in `.claude/agents/` directory
+- Fixed structured-outputs beta header being sent unconditionally on Vertex/Bedrock
+
+## 2.1.42
+
+- Improved startup performance by deferring Zod schema construction
+- Improved prompt cache hit rates by moving date out of system prompt
+- Added one-time Opus 4.6 effort callout for eligible users
+- Fixed /resume showing interrupt messages as session titles
+- Fixed image dimension limit errors to suggest /compact
+
+## 2.1.41
 
 - Added guard against launching Claude Code inside another Claude Code session
 - Fixed Agent Teams using wrong model identifier for Bedrock, Vertex, and Foundry customers
@@ -10,8 +47,23 @@
 - Fixed plugin browse showing misleading "Space to Toggle" hint for already-installed plugins
 - Fixed hook blocking errors (exit code 2) not showing stderr to the user
 - Added `speed` attribute to OTel events and trace spans for fast mode visibility
-- Fixed /resume showing interrupt messages as session titles
-- Fixed Opus 4.6 launch announcement showing for Bedrock/Vertex/Foundry users
+- Added `claude auth login`, `claude auth status`, and `claude auth logout` CLI subcommands
+- Added Windows ARM64 (win32-arm64) native binary support
+- Improved `/rename` to auto-generate session name from conversation context when called without arguments
+- Improved narrow terminal layout for prompt footer
+- Fixed file resolution failing for @-mentions with anchor fragments (e.g., `@README.md#installation`)
+- Fixed FileReadTool blocking the process on FIFOs, `/dev/stdin`, and large files
+- Fixed background task notifications not being delivered in streaming Agent SDK mode
+- Fixed cursor jumping to end on each keystroke in classifier rule input
+- Fixed markdown link display text being dropped for raw URL
+- Fixed auto-compact failure error notifications being shown to users
+- Fixed permission wait time being included in subagent elapsed time display
+- Fixed proactive ticks firing while in plan mode
+- Fixed clear stale permission rules when settings change on disk
+- Fixed hook blocking errors showing stderr content in UI
+
+## 2.1.39
+
 - Improved terminal rendering performance
 - Fixed fatal errors being swallowed instead of displayed
 - Fixed process hanging after session close
