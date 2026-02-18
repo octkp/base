@@ -25,7 +25,10 @@
       "Bash(git -C /Users/takano_y/dotfiles log --all --oneline -- zsh/ ghostty/)",
       "Bash(git -C /Users/takano_y/dotfiles log --oneline -5 -- zsh/kokopelli_alias.zsh)",
       "Bash(zsh -c '\nlang=\"\"テスト言語\"\"\nsettings=\"\"$HOME/.claude/settings.json\"\"\ntmp=$\\(jq --arg lang \"\"$lang\"\" \"\".language = \\\\$lang\"\" \"\"$settings\"\"\\)\necho \"\"$tmp\"\" > \"\"$settings\"\"\n')",
-      "Bash(zsh -c '\nlang=\"\"なんJ民\"\"\nsettings=\"\"$HOME/.claude/settings.json\"\"\ntmp=$\\(jq --arg lang \"\"$lang\"\" \"\".language = \\\\$lang\"\" \"\"$settings\"\"\\)\necho \"\"$tmp\"\" > \"\"$settings\"\"\n')"
+      "Bash(zsh -c '\nlang=\"\"なんJ民\"\"\nsettings=\"\"$HOME/.claude/settings.json\"\"\ntmp=$\\(jq --arg lang \"\"$lang\"\" \"\".language = \\\\$lang\"\" \"\"$settings\"\"\\)\necho \"\"$tmp\"\" > \"\"$settings\"\"\n')",
+      "Bash(git rm:*)",
+      "Bash(git checkout:*)",
+      "Bash(git reset:*)"
     ]
   }
 }
