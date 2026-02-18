@@ -23,8 +23,16 @@ cache/
 # プロジェクト固有の設定（ローカル環境依存）
 projects/
 
-# プラグインのキャッシュ
+# プラグインのキャッシュ・自動生成ファイル
 plugins/cache/
 plugins/marketplaces/
 plugins/install-counts-cache.json
 plugins/known_marketplaces.json
+plugins/blocklist.json
+plugins/installed_plugins.json
+
+# バックアップ
+backups/
+
+# ローカル設定
+settings.json
