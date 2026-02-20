@@ -28,7 +28,11 @@
       "Bash(zsh -c '\nlang=\"\"なんJ民\"\"\nsettings=\"\"$HOME/.claude/settings.json\"\"\ntmp=$\\(jq --arg lang \"\"$lang\"\" \"\".language = \\\\$lang\"\" \"\"$settings\"\"\\)\necho \"\"$tmp\"\" > \"\"$settings\"\"\n')",
       "Bash(git rm:*)",
       "Bash(git checkout:*)",
-      "Bash(git reset:*)"
+      "Bash(git reset:*)",
+      "Bash(unzip:*)",
+      "Bash(git -C /Users/takano_y/dotfiles config --get-all user.name)",
+      "Bash(git -C /Users/takano_y/dotfiles config:*)",
+      "Bash(git -C /Users/takano_y/dotfiles remote -v)"
     ]
   }
 }
