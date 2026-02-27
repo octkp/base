@@ -32,7 +32,9 @@
       "Bash(unzip:*)",
       "Bash(git -C /Users/takano_y/dotfiles config --get-all user.name)",
       "Bash(git -C /Users/takano_y/dotfiles config:*)",
-      "Bash(git -C /Users/takano_y/dotfiles remote -v)"
+      "Bash(git -C /Users/takano_y/dotfiles remote -v)",
+      "Bash(xxd ~/.zshrc | grep -A1 \"専門板\" | head -4)",
+      "Bash(sed -n '164p' ~/.zshrc | xxd | head -5)"
     ]
   }
 }
