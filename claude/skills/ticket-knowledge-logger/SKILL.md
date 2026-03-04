@@ -1,6 +1,6 @@
 ---
 name: ticket-knowledge-logger
-description: チケット番号（BAX-XXXX）とカテゴリ（調査/実装/その他）を指定して、会話ログとまとめファイルを記録するスキル。「BAX-10325の調査を記録」「実装にチケット作成」「会話ログを保存」などのリクエストで使用。
+description: チケット番号（BAX-XXXX）とカテゴリ（調査/実装/その他）を指定して、会話ログとまとめファイルを記録し、JIRAチケットにもコメントとしてナレッジを投稿するスキル。「BAX-10325の調査を記録」「実装にチケット作成」「会話ログを保存」などのリクエストで使用。
 ---
 
 # Ticket Knowledge Logger
@@ -116,6 +116,49 @@ mkdir -p /Users/takano_y/ghq/github.com/kokopelli-inc/badev-knowledge-base/docs/
 詳細は [LOG.md](./LOG.md) を参照。
 ```
 
+### 6. JIRAチケットにコメント投稿
+
+ログやREADMEを作成・更新した際、JIRAチケットにもナレッジコメントを投稿する。
+
+#### ツール
+
+`mcp__plugin_atlassian_atlassian__addCommentToJiraIssue` を使用する。
+
+#### パラメータ
+
+- **cloudId**: `kokopelli-inc.atlassian.net`
+- **issueIdOrKey**: `{チケット番号}`（例: `BAX-10325`）
+- **commentBody**: 下記フォーマットのMarkdown文字列
+
+#### コメントフォーマット
+
+```markdown
+## 📝 ナレッジ記録（{カテゴリ}）
+
+### 概要
+{チケットの目的・背景を1-2文で}
+
+### 結論/解決策
+{最終的な結論、解決策、または実装内容}
+
+### 関連ファイル
+- `path/to/file.php:123` - {説明}
+
+### 参考情報
+- {参考にしたドキュメント、URL}
+
+---
+*このコメントはClaude Codeのticket-knowledge-loggerスキルにより自動投稿されました*
+*詳細ログ: `badev-knowledge-base/docs/takano/{カテゴリ}/{チケット番号}_{チケット名}/`*
+```
+
+#### 注意事項
+
+- コメントはREADME.mdの内容に基づく要約とする（LOG.mdの詳細はローカルのみ）
+- 機密情報（パスワード、APIキー、内部IPアドレス等）はコメントに含めない
+- コメント投稿前にユーザーに内容を確認してもらう（AskUserQuestionで「このコメントをJIRAに投稿してよいですか？」と確認）
+- コメント投稿に失敗した場合はエラーを表示するが、ローカルファイルの作成は完了とみなす
+
 ## 使用例
 
 ### 新規チケットの記録開始
@@ -127,6 +170,8 @@ mkdir -p /Users/takano_y/ghq/github.com/kokopelli-inc/badev-knowledge-base/docs/
 2. `調査/BAX-10325_{チケット名}/` ディレクトリ作成
 3. `LOG.md` テンプレート作成
 4. `README.md` テンプレート作成
+5. コメント内容をユーザーに確認
+6. JIRAチケットにコメント投稿
 
 ### ログの追記
 
@@ -135,6 +180,9 @@ mkdir -p /Users/takano_y/ghq/github.com/kokopelli-inc/badev-knowledge-base/docs/
 実行:
 1. 既存のLOG.mdを読み込み
 2. 新しいセッションを追記
+3. README.mdを更新
+4. コメント内容をユーザーに確認
+5. JIRAチケットに最新のナレッジをコメント投稿
 
 ### まとめの更新
 
@@ -143,6 +191,8 @@ mkdir -p /Users/takano_y/ghq/github.com/kokopelli-inc/badev-knowledge-base/docs/
 実行:
 1. LOG.mdの内容から要点を抽出
 2. README.mdを更新
+3. コメント内容をユーザーに確認
+4. JIRAチケットに更新されたナレッジをコメント投稿
 
 ## カテゴリ判定の目安
 
@@ -158,3 +208,5 @@ mkdir -p /Users/takano_y/ghq/github.com/kokopelli-inc/badev-knowledge-base/docs/
 - README.mdは調査/実装が完了したタイミングで更新
 - 機密情報（パスワード、API キー等）は記録しない
 - **日時は必ず時刻（HH:MM）まで記録すること**（例: `2026-02-05 14:30`、`2026-02-05` だけはNG）
+- JIRAコメント投稿前に必ずユーザー確認を行う
+- JIRAコメントにはログの全量ではなく要約のみを投稿する
