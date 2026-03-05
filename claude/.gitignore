@@ -36,3 +36,4 @@ backups/
 
 # ローカル設定
 settings.json
+.credentials.json
