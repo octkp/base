@@ -37,7 +37,8 @@
       "Bash(sed -n '164p' ~/.zshrc | xxd | head -5)",
       "Bash(gh issue view https://github.com/octkp/dotfiles/issues/6 --json title,body,number,labels,state,assignees,milestone)",
       "mcp__plugin_atlassian_atlassian__searchJiraIssuesUsingJql",
-      "Bash(cat /Users/takano_y/.claude/projects/-Users-takano-y-dotfiles/3f511ec1-4013-4fec-8ec5-fe99e07399dd/tool-results/mcp-plugin_atlassian_atlassian-searchJiraIssuesUsingJql-1772592232443.txt | jq -r '.issues.nodes[] | \"\\\\\\(.key\\) | \\\\\\(.fields.issuetype.name\\) | \\\\\\(.fields.status.name\\) | \\\\\\(.fields.summary\\)\"' 2>/dev/null)"
+      "Bash(cat /Users/takano_y/.claude/projects/-Users-takano-y-dotfiles/3f511ec1-4013-4fec-8ec5-fe99e07399dd/tool-results/mcp-plugin_atlassian_atlassian-searchJiraIssuesUsingJql-1772592232443.txt | jq -r '.issues.nodes[] | \"\\\\\\(.key\\) | \\\\\\(.fields.issuetype.name\\) | \\\\\\(.fields.status.name\\) | \\\\\\(.fields.summary\\)\"' 2>/dev/null)",
+      "Bash(git remote add origin git@github.com:octkp/dotfiles.git)"
     ]
   }
 }
