@@ -11,7 +11,7 @@ fi
 
 INPUT=$(cat)
 
-WEBHOOK_URL="REDACTED_WEBHOOK_URL"
+WEBHOOK_URL="${CLAUDE_SLACK_WEBHOOK_URL:?CLAUDE_SLACK_WEBHOOK_URL is not set}"
 LAST_MSG=$(echo "$INPUT" | jq -r '.last_assistant_message // "（メッセージなし）"')
 PROJECT_DIR=$(echo "$INPUT" | jq -r '.cwd // "unknown"')
 PROJECT_NAME=$(basename "$PROJECT_DIR")

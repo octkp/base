@@ -8,7 +8,7 @@ if echo "$FRONTMOST_APP" | grep -qi "^iTerm2$"; then
   exit 0
 fi
 
-WEBHOOK_URL="REDACTED_WEBHOOK_URL"
+WEBHOOK_URL="${CLAUDE_SLACK_WEBHOOK_URL:?CLAUDE_SLACK_WEBHOOK_URL is not set}"
 
 INPUT=$(cat)
 PROJECT_DIR=$(echo "$INPUT" | jq -r '.cwd // "unknown"')

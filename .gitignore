@@ -10,3 +10,7 @@ nvim/plugin/
 
 # Symlink to external repo
 /note
+
+# Claude credentials (contains OAuth tokens)
+claude/.credentials.json
+claude/mcp-needs-auth-cache.json
