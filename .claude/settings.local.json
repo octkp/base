@@ -13,7 +13,12 @@
       "Bash(gh repo rename base --yes)",
       "Bash(git remote set-url origin git@github.com:octkp/base.git && git remote -v)",
       "Bash(git checkout main && git pull)",
-      "Bash(git stash && git checkout main && git pull && git stash pop)"
+      "Bash(git stash && git checkout main && git pull && git stash pop)",
+      "Bash(nix-collect-garbage:*)",
+      "Bash(nix flake update:*)",
+      "Bash(readlink:*)",
+      "Bash(nix-store:*)",
+      "Bash(sudo nix-store:*)"
     ]
   }
 }

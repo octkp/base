@@ -20,6 +20,11 @@
       LANG = "ja_JP.UTF-8";
       EDITOR = "vim";
     };
+
+    # PATH追加
+    sessionPath = [
+      "$HOME/.local/bin"
+    ];
   };
 
   # ファイルのシンボリックリンク（すべて mkOutOfStoreSymlink で管理）

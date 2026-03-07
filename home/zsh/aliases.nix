@@ -27,8 +27,11 @@
     # home-manager
     hm-switch = "home-manager switch --flake ~/base";
 
-    # zed
-    z = "zed .";
+    # zed (current dir)
+    z = "command zed .";
+
+    # claude
+    claude = "~/.local/bin/claude";
 
     #dotfiles
     b = "cd ~/base";
