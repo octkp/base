@@ -125,7 +125,7 @@
         echo "$tmp" > "$settings"
       fi
 
-      claude "$@"
+      ~/.local/bin/claude "$@"
     }
 
     # インタラクティブファイルナビゲーター
