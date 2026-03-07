@@ -31,6 +31,6 @@
     z = "zed .";
 
     #dotfiles
-    d = "cd ~/base";
+    b = "cd ~/base";
   };
 }
