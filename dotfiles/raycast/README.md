@@ -6,7 +6,7 @@ Raycast用のカスタムスクリプトコマンド集。
 
 1. Raycastを開く
 2. `Extensions` → `Script Commands` → `Add Directories`
-3. `~/dotfiles/raycast/scripts` を追加
+3. `~/base/raycast/scripts` を追加
 
 ## スクリプト一覧
 
@@ -26,7 +26,7 @@ Raycastで「launcher」と入力して実行。iTerm2でbadev-launcherが起動
 
 Raycastで「note」と入力し、メモ内容を入力して実行。
 
-- `~/dotfiles/note/` に `YYYYMMDD-HHMMSS.md` 形式で保存
+- `~/base/note/` に `YYYYMMDD-HHMMSS.md` 形式で保存
 - 第2引数で「open」を選択するとZedで開く
 
 ### AWS SSO Login

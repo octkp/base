@@ -25,12 +25,12 @@
     repo = "cd ~/ghq/github.com";
 
     # home-manager
-    hm-switch = "home-manager switch --flake ~/dotfiles";
+    hm-switch = "home-manager switch --flake ~/base";
 
     # zed
     z = "zed .";
 
     #dotfiles
-    d = "cd ~/dotfiles";
+    d = "cd ~/base";
   };
 }

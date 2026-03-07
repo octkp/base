@@ -20,7 +20,7 @@
 ### 実行方法
 
 ```bash
-cd ~/dotfiles
+cd ~/base
 ./scripts/bootstrap.sh
 ```
 

@@ -27,7 +27,7 @@
     brewfile-dump() {
       brew bundle dump --force --global
       if [ -f ~/.Brewfile ]; then
-        cp ~/.Brewfile ~/dotfiles/brew/Brewfile
+        cp ~/.Brewfile ~/base/dotfiles/brew/Brewfile
       else
         echo "Error: ~/.Brewfile not found"
       fi

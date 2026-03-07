@@ -1,0 +1,23 @@
+# Font
+font-family = Osaka
+font-size = 18
+
+# Theme
+theme = IR Black
+
+# Window
+window-padding-x = 8
+window-padding-y = 4
+window-decoration = true
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+
+# Shell
+shell-integration = zsh
+
+# Misc
+copy-on-select = clipboard
+confirm-close-surface = false
+macos-option-as-alt = true

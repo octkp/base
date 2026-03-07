@@ -17,7 +17,7 @@ Claude Code の設定とスキル
 home-manager により以下のリンクが作成される：
 
 ```
-~/.claude → ~/dotfiles/claude
+~/.claude → ~/base/dotfiles/claude
 ```
 
 ## スキル一覧
