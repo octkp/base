@@ -15,9 +15,9 @@ Zed エディタの設定ファイル
 home-manager により以下のリンクが作成される：
 
 ```
-~/.config/zed/settings.json → ~/dotfiles/zed/settings.json
-~/.config/zed/keymap.json   → ~/dotfiles/zed/keymap.json
-~/.config/zed/tasks.json    → ~/dotfiles/zed/tasks.json
+~/.config/zed/settings.json → ~/base/dotfiles/zed/settings.json
+~/.config/zed/keymap.json   → ~/base/dotfiles/zed/keymap.json
+~/.config/zed/tasks.json    → ~/base/dotfiles/zed/tasks.json
 ```
 
 ## 設定を変更したとき

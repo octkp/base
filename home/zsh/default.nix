@@ -86,6 +86,7 @@
         export PATH=$HOME/.composer/vendor/bin:$PATH
 
         # カスタムスクリプト読み込み
+        [[ -f ~/.config/zsh/secrets.zsh ]] && source ~/.config/zsh/secrets.zsh
         [[ -f ~/.config/zsh/kokopelli_alias.zsh ]] && source ~/.config/zsh/kokopelli_alias.zsh
 
         # プロンプト前に区切り線を表示

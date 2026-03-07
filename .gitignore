@@ -12,5 +12,5 @@ nvim/plugin/
 /note
 
 # Claude credentials (contains OAuth tokens)
-claude/.credentials.json
-claude/mcp-needs-auth-cache.json
+dotfiles/claude/.credentials.json
+dotfiles/claude/mcp-needs-auth-cache.json

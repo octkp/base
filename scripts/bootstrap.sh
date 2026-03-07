@@ -43,9 +43,9 @@ if ! grep -q "experimental-features" ~/.config/nix/nix.conf 2>/dev/null; then
 fi
 
 # dotfiles ディレクトリに移動
-DOTFILES_DIR="${HOME}/dotfiles"
+DOTFILES_DIR="${HOME}/base"
 if [[ ! -d "$DOTFILES_DIR" ]]; then
-    error "dotfiles ディレクトリが見つかりません: $DOTFILES_DIR"
+    error "base ディレクトリが見つかりません: $DOTFILES_DIR"
 fi
 cd "$DOTFILES_DIR"
 
@@ -82,5 +82,5 @@ echo "2. 'hm-switch' で設定を更新できます"
 echo ""
 echo "便利なコマンド:"
 echo "  hm-switch           - 設定を再ビルド（エイリアス）"
-echo "  home-manager switch --flake ~/dotfiles  - 同上（フルコマンド）"
+echo "  home-manager switch --flake ~/base  - 同上（フルコマンド）"
 echo "  home-manager generations  - 世代一覧"

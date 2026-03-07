@@ -1,23 +1,26 @@
-# dotfiles
+# base
 
-Nix + home-manager で管理するモダンな dotfiles
+Nix + home-manager で管理するモダンな個人ベースリポジトリ
 
 ## 概要
 
 ```
-~/dotfiles/
+~/base/
 ├── flake.nix           # Nixのエントリーポイント
 ├── home/               # home-manager設定
 │   ├── default.nix     # ファイル配置・シンボリックリンク
-│   ├── zsh.nix         # zsh設定（エイリアス、履歴、プラグイン）
+│   ├── zsh/            # zsh設定（エイリアス、履歴、プラグイン）
 │   ├── git.nix         # git設定
 │   ├── packages.nix    # CLIパッケージ定義
 │   └── programs/       # 個別ツール設定（fzf, bat）
-├── zsh/                # カスタムスクリプト
-├── zed/                # Zedエディタ設定
-├── claude/             # Claude Code設定
-├── brew/               # Homebrew Brewfile
+├── dotfiles/           # 設定ファイル群
+│   ├── zsh/            # カスタムスクリプト
+│   ├── zed/            # Zedエディタ設定
+│   ├── claude/         # Claude Code設定
+│   ├── brew/           # Homebrew Brewfile
+│   └── ...             # その他設定ファイル
 ├── scripts/            # セットアップスクリプト
+├── tasks/              # タスクログ
 └── Makefile            # 便利コマンド
 ```
 
@@ -41,7 +44,7 @@ echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 ### 3. dotfiles を適用
 
 ```bash
-cd ~/dotfiles
+cd ~/base
 nix run home-manager -- switch --flake .#takano_y -b backup
 ```
 
@@ -97,9 +100,9 @@ home-manager switch --rollback  # 前の状態に戻す
 | 用途 | 管理ツール | 設定ファイル |
 |------|-----------|-------------|
 | CLIツール（bat, fzf, neovim等） | Nix | `home/packages.nix` |
-| GUIアプリ（Docker, Raycast等） | Homebrew | `brew/Brewfile` |
-| PHP / Composer | Homebrew | `brew/Brewfile` |
-| asdf | Homebrew | `brew/Brewfile` |
+| GUIアプリ（Docker, Raycast等） | Homebrew | `dotfiles/brew/Brewfile` |
+| PHP / Composer | Homebrew | `dotfiles/brew/Brewfile` |
+| asdf | Homebrew | `dotfiles/brew/Brewfile` |
 
 ## ファイルの役割
 
@@ -117,7 +120,7 @@ home-manager switch --rollback  # 前の状態に戻す
 
 | エイリアス | コマンド |
 |-----------|---------|
-| `hm-switch` | `home-manager switch --flake ~/dotfiles` |
+| `hm-switch` | `home-manager switch --flake ~/base` |
 | `gs` | `git status` |
 | `gps` | `git push` |
 | `gpl` | `git pull` |

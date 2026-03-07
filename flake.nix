@@ -1,5 +1,5 @@
 {
-  description = "takano_y's dotfiles with Nix + home-manager";
+  description = "takano_y's personal base with Nix + home-manager";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -30,6 +30,7 @@
 
         extraSpecialArgs = {
           inherit username;
+          repoDir = "base";
         };
       };
 

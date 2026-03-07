@@ -1,4 +1,4 @@
-{ config, pkgs, lib, username, ... }:
+{ config, pkgs, lib, username, repoDir, ... }:
 
 {
   imports = [
@@ -25,33 +25,33 @@
   # ファイルのシンボリックリンク（すべて mkOutOfStoreSymlink で管理）
   home.file = {
     # Zed設定
-    ".config/zed/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zed/settings.json";
-    ".config/zed/keymap.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zed/keymap.json";
-    ".config/zed/tasks.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zed/tasks.json";
+    ".config/zed/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${repoDir}/dotfiles/zed/settings.json";
+    ".config/zed/keymap.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${repoDir}/dotfiles/zed/keymap.json";
+    ".config/zed/tasks.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${repoDir}/dotfiles/zed/tasks.json";
 
     # Claude設定
-    ".claude".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/claude";
+    ".claude".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${repoDir}/dotfiles/claude";
 
     # カスタムzshスクリプト（会社固有など）
-    ".config/zsh/kokopelli_alias.zsh".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh/kokopelli_alias.zsh";
+    ".config/zsh/kokopelli_alias.zsh".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${repoDir}/dotfiles/zsh/kokopelli_alias.zsh";
 
     # zeno.zsh設定
-    ".config/zeno/config.ts".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zeno/config.ts";
+    ".config/zeno/config.ts".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${repoDir}/dotfiles/zeno/config.ts";
 
     # Ghostty設定
-    ".config/ghostty/config".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/ghostty/config";
+    ".config/ghostty/config".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${repoDir}/dotfiles/ghostty/config";
 
     # pgcli設定
-    ".config/pgcli/config".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/pgcli/config";
+    ".config/pgcli/config".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${repoDir}/dotfiles/pgcli/config";
 
     # gwq設定
-    ".config/gwq/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/gwq/config.toml";
+    ".config/gwq/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${repoDir}/dotfiles/gwq/config.toml";
 
     # Hammerspoon設定
-    ".hammerspoon".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/hammerspoon";
+    ".hammerspoon".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${repoDir}/dotfiles/hammerspoon";
 
     # 便利なエイリアスへのシンボリックリンク
-    "kalias".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh/kokopelli_alias.zsh";
+    "kalias".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${repoDir}/dotfiles/zsh/kokopelli_alias.zsh";
   };
 
   # home-manager 自身を管理

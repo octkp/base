@@ -103,7 +103,7 @@ export default defineConfig(() => ({
     {
       name: "home-manager switch",
       keyword: "hms",
-      snippet: "home-manager switch --flake ~/dotfiles",
+      snippet: "home-manager switch --flake ~/base",
     },
 
     // Claude

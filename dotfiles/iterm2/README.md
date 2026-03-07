@@ -4,7 +4,7 @@
 
 ```bash
 # iTerm2を閉じた状態で実行
-cp ~/dotfiles/iterm2/com.googlecode.iterm2.plist ~/Library/Preferences/
+cp ~/base/dotfiles/iterm2/com.googlecode.iterm2.plist ~/Library/Preferences/
 defaults read com.googlecode.iterm2
 ```
 
@@ -12,7 +12,7 @@ defaults read com.googlecode.iterm2
 
 ```bash
 # iTerm2を閉じた状態で実行
-plutil -convert xml1 ~/Library/Preferences/com.googlecode.iterm2.plist -o ~/dotfiles/iterm2/com.googlecode.iterm2.plist
+plutil -convert xml1 ~/Library/Preferences/com.googlecode.iterm2.plist -o ~/base/dotfiles/iterm2/com.googlecode.iterm2.plist
 ```
 
 または `make iterm2-save` を使用

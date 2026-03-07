@@ -4,7 +4,8 @@
 
 ## リポジトリの概要
 
-Nix + home-manager で管理するmacOS開発環境用のドットファイルリポジトリです。
+Nix + home-manager で管理するmacOS開発環境用の個人ベースリポジトリです。
+dotfiles、タスク、ドキュメントなどを一元管理しています。
 フルスタック開発（PHP/Laravel、Go、Node.js）に焦点を当てています。
 
 ## セットアップ
@@ -19,8 +20,8 @@ sh <(curl -L https://nixos.org/nix/install)
 mkdir -p ~/.config/nix
 echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 
-# 3. dotfiles を適用
-cd ~/dotfiles
+# 3. base を適用
+cd ~/base
 nix run home-manager -- switch --flake .#takano_y -b backup
 ```
 
@@ -38,22 +39,29 @@ make clean             # 不要なキャッシュを削除
 ### ディレクトリ構成
 
 ```
-~/dotfiles/
+~/base/
 ├── flake.nix              # Nixエントリーポイント
 ├── flake.lock             # バージョン固定
 ├── home/                  # home-manager設定
 │   ├── default.nix        # ファイル配置・シンボリックリンク
-│   ├── zsh.nix            # zsh設定（エイリアス、履歴、プラグイン）
+│   ├── zsh/               # zsh設定（エイリアス、履歴、プラグイン）
 │   ├── git.nix            # git設定
 │   ├── packages.nix       # CLIパッケージ定義
 │   └── programs/          # 個別ツール設定（fzf, bat）
-├── zsh/                   # カスタムスクリプト
-│   ├── f.zsh              # インタラクティブナビゲーター
-│   └── kokopelli_alias.zsh # 会社固有エイリアス
-├── zed/                   # Zedエディタ設定
-├── brew/                  # Homebrew（GUIアプリ用）
-├── claude/                # Claude Code設定
-└── scripts/               # セットアップスクリプト
+├── dotfiles/              # 設定ファイル群（ここに集約）
+│   ├── zsh/               # カスタムスクリプト
+│   ├── zed/               # Zedエディタ設定
+│   ├── claude/            # Claude Code設定
+│   ├── ghostty/           # Ghostty設定
+│   ├── hammerspoon/       # Hammerspoon設定
+│   ├── gwq/               # gwq設定
+│   ├── pgcli/             # pgcli設定
+│   ├── zeno/              # zeno設定
+│   ├── raycast/           # Raycast設定
+│   └── brew/              # Homebrew（GUIアプリ用）
+├── scripts/               # セットアップスクリプト
+├── tasks/                 # タスクログ
+└── note/                  # メモ（外部リポジトリへのシンボリックリンク）
 ```
 
 ### Nix と Homebrew の使い分け
@@ -61,8 +69,8 @@ make clean             # 不要なキャッシュを削除
 | 用途 | 管理ツール | 設定ファイル |
 |------|-----------|-------------|
 | CLIツール（bat, fzf, neovim等） | Nix | `home/packages.nix` |
-| GUIアプリ（Docker, Raycast等） | Homebrew | `brew/Brewfile` |
-| PHP / Composer / asdf | Homebrew | `brew/Brewfile` |
+| GUIアプリ（Docker, Raycast等） | Homebrew | `dotfiles/brew/Brewfile` |
+| PHP / Composer / asdf | Homebrew | `dotfiles/brew/Brewfile` |
 
 ### 設定変更の流れ
 
@@ -104,7 +112,7 @@ go test -cover ./...        # カバレッジ付きで実行
 
 ### 会社固有の設定
 
-`zsh/kokopelli_alias.zsh` にKokopelli Inc.開発用のエイリアスが含まれます：
+`dotfiles/zsh/kokopelli_alias.zsh` にKokopelli Inc.開発用のエイリアスが含まれます：
 - AWS SSOプロファイル切り替え
 - BigAdvance/XBAシステムのショートカット
 - データベースマイグレーションヘルパー
@@ -115,7 +123,7 @@ go test -cover ./...        # カバレッジ付きで実行
 
 | エイリアス | コマンド |
 |-----------|---------|
-| `hm-switch` | `home-manager switch --flake ~/dotfiles` |
+| `hm-switch` | `home-manager switch --flake ~/base` |
 | `gs` | `git status` |
 | `gps` / `gpl` | `git push` / `git pull` |
 | `dc` | `docker compose` |

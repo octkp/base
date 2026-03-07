@@ -25,6 +25,7 @@ description: チケット番号（BAX-XXXX）とカテゴリ（調査/実装/そ
 
 - `LOG.md` - 会話ログ（時系列の詳細記録）
 - `README.md` - まとめ（結論・要点のサマリー）
+- `PLAN.md` - プラン計画書（プランモード使用時に生成。タスク分解・実装方針・影響範囲などを記録）
 
 ## ワークフロー
 
@@ -111,12 +112,69 @@ mkdir -p /Users/takano_y/ghq/github.com/kokopelli-inc/badev-knowledge-base/docs/
 - {参考にしたドキュメント、URL}
 - {関連するチケット番号}
 
+## プラン
+
+計画書は [PLAN.md](./PLAN.md) を参照。
+
 ## ログ
 
 詳細は [LOG.md](./LOG.md) を参照。
 ```
 
-### 6. JIRAチケットにコメント投稿
+### 6. PLAN.md 作成（プランモード使用時）
+
+プランモード（EnterPlanMode）でタスクの計画を立てた場合、その計画書を `PLAN.md` として保存する。
+
+**タイミング**: プランモードで計画を策定した直後、または記録時にプランモードの出力が会話に存在する場合。
+
+```markdown
+# {チケット番号} プラン計画書
+
+## 基本情報
+
+- **チケット**: {チケット番号}
+- **作成日時**: {YYYY-MM-DD HH:MM}
+- **最終更新**: {YYYY-MM-DD HH:MM}
+
+---
+
+## 目的・ゴール
+
+{チケットで達成すべきことを明確に記述}
+
+## 現状分析
+
+{現在のコードの状態、問題点の整理}
+
+## 実装方針
+
+{どのようなアプローチで解決するかの方針}
+
+## タスク分解
+
+- [ ] タスク1: {内容}
+- [ ] タスク2: {内容}
+- [ ] タスク3: {内容}
+
+## 影響範囲
+
+- {変更が影響するファイル・機能の一覧}
+
+## リスク・懸念事項
+
+- {想定されるリスクや注意点}
+
+## 備考
+
+{その他の補足情報}
+```
+
+**更新ルール**:
+- プランモードで計画を再策定した場合は、PLAN.mdを上書き更新する（最新の計画のみ保持）
+- タスク分解のチェックボックスは、実装完了時に手動またはログ記録時に更新可能
+- README.mdの「関連ファイル」セクションに `PLAN.md` へのリンクを追加する
+
+### 7. JIRAチケットにコメント投稿
 
 ログやREADMEを作成・更新した際、JIRAチケットにもナレッジコメントを投稿する。
 
@@ -130,8 +188,56 @@ mkdir -p /Users/takano_y/ghq/github.com/kokopelli-inc/badev-knowledge-base/docs/
 - **issueIdOrKey**: `{チケット番号}`（例: `BAX-10325`）
 - **commentBody**: 下記フォーマットのMarkdown文字列
 
+#### GitHubリンクの確認
+
+コメント投稿前に、LOG.mdとREADME.mdがリモートにプッシュ済みかを確認する。
+
+**確認方法**:
+```bash
+cd /Users/takano_y/ghq/github.com/kokopelli-inc/badev-knowledge-base && \
+git log --oneline origin/main -- "docs/takano/{カテゴリ}/{チケット番号}_{チケット名}/LOG.md" | head -1 && \
+git log --oneline origin/main -- "docs/takano/{カテゴリ}/{チケット番号}_{チケット名}/README.md" | head -1
+```
+
+- 出力があればリモートにプッシュ済み → GitHubリンクをコメントに追加
+- 出力が空ならまだプッシュされていない → ローカルパスのみ記載
+
+**GitHubリンクのURL形式**:
+```
+https://github.com/kokopelli-inc/badev-knowledge-base/blob/main/docs/takano/{カテゴリ}/{チケット番号}_{チケット名}/README.md
+https://github.com/kokopelli-inc/badev-knowledge-base/blob/main/docs/takano/{カテゴリ}/{チケット番号}_{チケット名}/LOG.md
+```
+
+**注意**: URLに日本語が含まれる場合はそのまま記載する（GitHubがURLエンコードを処理する）。
+
 #### コメントフォーマット
 
+```markdown
+## 📝 ナレッジ記録（{カテゴリ}）
+
+### 概要
+{チケットの目的・背景を1-2文で}
+
+### 結論/解決策
+{最終的な結論、解決策、または実装内容}
+
+### 関連ファイル
+- `path/to/file.php:123` - {説明}
+
+### 参考情報
+- {参考にしたドキュメント、URL}
+
+### 詳細ドキュメント
+<!-- リモートにプッシュ済みの場合のみこのセクションを追加 -->
+- [README.md](https://github.com/kokopelli-inc/badev-knowledge-base/blob/main/docs/takano/{カテゴリ}/{チケット番号}_{チケット名}/README.md)
+- [LOG.md](https://github.com/kokopelli-inc/badev-knowledge-base/blob/main/docs/takano/{カテゴリ}/{チケット番号}_{チケット名}/LOG.md)
+
+---
+*このコメントはClaude Codeのticket-knowledge-loggerスキルにより自動投稿されました*
+*詳細ログ: `badev-knowledge-base/docs/takano/{カテゴリ}/{チケット番号}_{チケット名}/`*
+```
+
+**リモート未プッシュ時のフォーマット**（「詳細ドキュメント」セクションなし）:
 ```markdown
 ## 📝 ナレッジ記録（{カテゴリ}）
 
@@ -183,6 +289,15 @@ mkdir -p /Users/takano_y/ghq/github.com/kokopelli-inc/badev-knowledge-base/docs/
 3. README.mdを更新
 4. コメント内容をユーザーに確認
 5. JIRAチケットに最新のナレッジをコメント投稿
+
+### プラン計画書の保存
+
+ユーザー: 「BAX-10325のプランを記録して」または、プランモード終了後に記録スキルを実行
+
+実行:
+1. プランモードの出力内容を取得
+2. `PLAN.md` を作成または上書き更新
+3. README.mdに「プラン」セクションのリンクを追加/更新
 
 ### まとめの更新
 
