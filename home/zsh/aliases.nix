@@ -26,6 +26,7 @@
 
     # home-manager
     hm-switch = "home-manager switch --flake ~/base";
+    hm = "home-manager switch --flake ~/base";
 
     # zed (current dir)
     z = "command zed .";

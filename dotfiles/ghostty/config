@@ -21,3 +21,4 @@ shell-integration = zsh
 copy-on-select = clipboard
 confirm-close-surface = false
 macos-option-as-alt = true
+keybind = backspace=text:\x08
