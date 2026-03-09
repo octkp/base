@@ -18,7 +18,7 @@
     # 環境変数
     sessionVariables = {
       LANG = "ja_JP.UTF-8";
-      EDITOR = "vim";
+      EDITOR = "nvim";
     };
 
     # PATH追加
@@ -54,6 +54,9 @@
 
     # Hammerspoon設定
     ".hammerspoon".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${repoDir}/dotfiles/hammerspoon";
+
+    # Neovim設定
+    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${repoDir}/dotfiles/nvim";
 
     # 便利なエイリアスへのシンボリックリンク
     "kalias".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${repoDir}/dotfiles/zsh/kokopelli_alias.zsh";

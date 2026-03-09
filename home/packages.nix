@@ -20,10 +20,12 @@
     ripgrep             # grep の改良版
     tmux
     tree
+    zellij              # ターミナルマルチプレクサ（tmux後継）
 
     # Node.js エコシステム
     nodejs_20
     nodePackages.eslint
+    nodePackages.intelephense
     bun
 
     # 開発ツール

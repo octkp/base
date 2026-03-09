@@ -18,7 +18,9 @@
       "Bash(nix flake update:*)",
       "Bash(readlink:*)",
       "Bash(nix-store:*)",
-      "Bash(sudo nix-store:*)"
+      "Bash(sudo nix-store:*)",
+      "Bash(nvim:*)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ]
   }
 }

@@ -33,7 +33,10 @@
     # claude
     claude = "~/.local/bin/claude";
 
-    #dotfiles
+    # dotfiles
     b = "cd ~/base";
+
+    # nvim
+    v = "nvim";
   };
 }

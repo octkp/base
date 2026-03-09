@@ -79,8 +79,8 @@
         fi
         export PATH=$PATH:$HOME/go/bin
 
-        # PostgreSQL@12
-        export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"
+        # PostgreSQL@16
+        export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
         # Composer
         export PATH=$HOME/.composer/vendor/bin:$PATH
