@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "plugins": {
+    "sample@company-plugins": [
+      {
+        "scope": "project",
+        "projectPath": "/Users/takano_y/dev/claude-code-marketplace",
+        "installPath": "/Users/takano_y/.claude/plugins/cache/company-plugins/sample/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2025-12-25T12:54:42.134Z",
+        "lastUpdated": "2025-12-25T12:54:42.134Z"
+      }
+    ]
+  }
+}
