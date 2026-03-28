@@ -29,9 +29,15 @@ nix run home-manager -- switch --flake .#takano_y -b backup
 
 ```bash
 hm-switch              # 設定を反映（エイリアス）
-make switch            # 同上
-make update            # パッケージを最新版に更新
-make clean             # 不要なキャッシュを削除
+make switch            # 同上（preflight チェック付き）
+make update            # flake.lock更新 + 適用
+make clean             # ガベージコレクション + ストア最適化
+make check             # flakeチェック（適用なし）
+make fmt               # Nixファイルフォーマット
+make generations       # home-manager世代一覧
+make bootstrap         # 初期セットアップ実行
+make iterm2-save       # iTerm2設定をdotfilesに保存
+make iterm2-apply      # iTerm2設定を適用
 ```
 
 ## アーキテクチャ
@@ -42,26 +48,37 @@ make clean             # 不要なキャッシュを削除
 ~/base/
 ├── flake.nix              # Nixエントリーポイント
 ├── flake.lock             # バージョン固定
+├── Makefile               # タスクランナー（switch, update, clean等）
 ├── home/                  # home-manager設定
-│   ├── default.nix        # ファイル配置・シンボリックリンク
-│   ├── zsh/               # zsh設定（エイリアス、履歴、プラグイン）
-│   ├── git.nix            # git設定
+│   ├── default.nix        # ファイル配置・シンボリックリンク（mkOutOfStoreSymlink）
 │   ├── packages.nix       # CLIパッケージ定義
-│   └── programs/          # 個別ツール設定（fzf, bat）
-├── dotfiles/              # 設定ファイル群（ここに集約）
-│   ├── zsh/               # カスタムスクリプト
-│   ├── zed/               # Zedエディタ設定
-│   ├── claude/            # Claude Code設定
-│   ├── ghostty/           # Ghostty設定
-│   ├── hammerspoon/       # Hammerspoon設定
+│   ├── git.nix            # git設定
+│   ├── zsh/               # zsh設定
+│   │   ├── default.nix    # メイン設定（履歴、プラグイン、キーバインド）
+│   │   ├── aliases.nix    # シェルエイリアス
+│   │   ├── functions.nix  # カスタム関数（fzf連携、ナビゲーション等）
+│   │   └── variables.nix  # 環境変数
+│   └── programs/          # 個別ツール設定
+│       ├── fzf.nix
+│       ├── bat.nix
+│       └── starship.nix
+├── dotfiles/              # 設定ファイル群（シンボリックリンクで配置）
+│   ├── brew/              # Homebrew（Brewfile）
+│   ├── claude/            # Claude Code設定（skills, hooks, plugins）
+│   ├── ghostty/           # Ghosttyターミナル設定
 │   ├── gwq/               # gwq設定
+│   ├── hammerspoon/       # Hammerspoon（macOS自動化）
+│   ├── iterm2/            # iTerm2設定・カラースキーム
 │   ├── pgcli/             # pgcli設定
-│   ├── zeno/              # zeno設定
-│   ├── raycast/           # Raycast設定
-│   └── brew/              # Homebrew（GUIアプリ用）
-├── scripts/               # セットアップスクリプト
+│   ├── raycast/           # Raycastスクリプト
+│   ├── zed/               # Zedエディタ設定
+│   ├── zeno/              # zeno.zshスニペット・補完設定
+│   └── zsh/               # カスタムスクリプト（kokopelli_alias.zsh等）
+├── docs/                  # ドキュメント
+│   └── grade/             # 等級評価関連
+├── scripts/               # セットアップスクリプト（bootstrap.sh）
 ├── tasks/                 # タスクログ
-└── note/                  # メモ（外部リポジトリへのシンボリックリンク）
+└── note/                  # メモ（外部リポジトリへのシンボリックリンク、.gitignore対象）
 ```
 
 ### Nix と Homebrew の使い分け
@@ -83,7 +100,7 @@ make clean             # 不要なキャッシュを削除
 ### 言語ツール
 
 - **PHP**: Homebrew経由。Docker開発にはLaravel Sailを使用
-- **Go**: asdfで管理（Nix管理のgoも併用可）
+- **Go**: asdf で管理（Nix管理のgoも併用）。GOBIN=$HOME/go/bin
 - **Node.js**: Nix（nodejs_20）またはasdf
 - **Python**: Nix（python311）
 - **その他**: Deno、Bun（Nix管理）
@@ -117,28 +134,69 @@ go test -cover ./...        # カバレッジ付きで実行
 - BigAdvance/XBAシステムのショートカット
 - データベースマイグレーションヘルパー
 
-編集: `vim ~/kalias`
+`~/.config/zsh/kokopelli_alias.zsh` にシンボリックリンクされ、zsh起動時に読み込まれます。
+編集: `vim ~/kalias`（home-managerがシンボリックリンクを作成）
 
 ## よく使うエイリアス
+
+### シェルエイリアス（aliases.nix）
 
 | エイリアス | コマンド |
 |-----------|---------|
 | `hm-switch` | `home-manager switch --flake ~/base` |
+| `g` | `lazygit` |
+| `ga` | `git add` |
+| `gb` | `git branch` |
+| `gl` | `git log` |
+| `gcm` | `git commit` |
+| `glg` | `git log --oneline --graph --decorate` |
+| `ls` | `eza -la --icons` |
+| `lt` | `eza --icons --git --time-style relative -al` |
+| `diff` | `colordiff` |
+| `z` | `zed .` |
+| `b` | `cd ~/base` |
+| `load` | `exec zsh` |
+| `repo` | `cd ~/ghq/github.com` |
+
+### zenoスニペット（dotfiles/zeno/config.ts）
+
+| スニペット | 展開後 |
+|-----------|--------|
 | `gs` | `git status` |
 | `gps` / `gpl` | `git push` / `git pull` |
+| `gc` | `git commit -m '...'` |
+| `gco` | `git checkout` |
+| `gd` | `git diff` |
+| `gst` | `git stash` |
 | `dc` | `docker compose` |
-| `c` | `claude` |
+| `dcu` | `docker compose up -d` |
+| `dcd` | `docker compose down` |
+| `dcl` | `docker compose logs -f` |
+| `dce` | `docker compose exec` |
+| `hms` | `home-manager switch --flake ~/base` |
+
+### zeno略語展開（abbrs）
+
+| 略語 | 展開後 |
+|------|--------|
 | `v` | `nvim` |
-| `ls` | `eza -la --icons` |
-| `f` | インタラクティブナビゲーター |
+| `g` | `git`（※ エイリアスの `lazygit` が優先） |
+| `d` | `docker` |
+| `k` | `kubectl` |
 
-## fzf統合
+## カスタム関数
 
-fzfを活用したヘルパー関数：
+fzfを活用したヘルパー関数（functions.nix）：
+- **`f`** - インタラクティブなファイル/ディレクトリナビゲーター
 - **`fbr`** - Gitブランチをファジー検索・切り替え
 - **`fcat`** - ファイルをファジー検索・batでプレビュー
 - **`fv`** - 複数ファイルをファジー検索・neovimで開く
-- **`f`** - インタラクティブなディレクトリナビゲーター
+- **`r`** - ghq + gwq のリポジトリ/worktreeをfzfで選択・移動
+- **`wt-add`** - gwqでworktreeを新規作成（`wt-add <branch-name>`）
+- **`rd`** - bigadvance-3.0-docs/references/repos 内のリポジトリを選択・移動
+- **`rdb`** - 同上 + ブランチ切り替え
+- **`c`** - Claude Codeをランダムな言語キャラクターで起動
+- **`brewfile-dump`** - Brewfileをdotfilesに保存
 
 ## トラブルシューティング
 
@@ -155,9 +213,17 @@ home-manager switch --rollback  # 前の状態に戻す
 . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 ```
 
+## zshプラグイン
+
+- **zsh-autosuggestions** - コマンド入力補完
+- **zsh-syntax-highlighting** - シンタックスハイライト
+- **zeno.zsh** - スニペット展開・fzf補完（yuki-yano/zeno.zsh）
+
 ## 重要な注意事項
 
 - macOS固有の設定（`/opt/homebrew/`パスを使用）
 - 言語設定: ja_JP.UTF-8
 - home-manager は `~/` 以下のみを管理（システムには触れない）
+- シンボリックリンクは `mkOutOfStoreSymlink` で管理（`home/default.nix`）
+- `~/.claude` → `dotfiles/claude/` にシンボリックリンク
 - 設定変更後は `hm-switch` で反映
