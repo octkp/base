@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="04_prod_xba_master" uuid="ccaf780f-d5cf-4ee6-8f36-700cae807ab2">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://rd1iujeqg0zctmo.c8kudoga0tgd.ap-northeast-1.rds.amazonaws.com:5432/postgres</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="AWS.RegionId" value="ap-northeast-1" />
+        <property name="AWS.CredentialId" value="profile:XbaMasterDBConnectionAccess" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="03_prod_xba_replica" uuid="657ccfa1-b4e4-4a21-944b-abd6dd29403e">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://xba-readreplica.c8kudoga0tgd.ap-northeast-1.rds.amazonaws.com:5432/postgres</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="AWS.RegionId" value="ap-northeast-1" />
+        <property name="AWS.CredentialId" value="profile:xba" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="04_prod_bam_master" uuid="2f8e2400-7f5d-42b5-acd2-3330349ec464">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://rdj54i84duwrq2.c8kudoga0tgd.ap-northeast-1.rds.amazonaws.com:5432/postgres</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="AWS.RegionId" value="ap-northeast-1" />
+        <property name="AWS.CredentialId" value="profile:BamMasterDBConnectionAccess" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="02_test_xba" uuid="1b95fd04-d903-466d-a004-501a7c1aa3ca">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://rdfq6h4sf52pkr.cxkd5hmculvd.ap-northeast-1.rds.amazonaws.com:5432/postgres</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="AWS.RegionId" value="ap-northeast-1" />
+        <property name="AWS.CredentialId" value="profile:koko" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="01_local" uuid="47dcdbff-65ab-4851-9da5-f502151aeb70">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <auto-commit>false</auto-commit>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:54321/postgres</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="AWS.RegionId" value="ap-northeast-1" />
+        <property name="AWS.CredentialId" value="profile:koko" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="02_test_bam" uuid="9d18ffd7-c5d5-4343-86de-cf9d62a1c2dd">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://rd1otuq6g4xd5mh.cxkd5hmculvd.ap-northeast-1.rds.amazonaws.com:5432/postgres</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="AWS.RegionId" value="ap-northeast-1" />
+        <property name="AWS.CredentialId" value="profile:koko" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="03_prod_bam_replica" uuid="702f6336-9ec5-48f5-b323-b7b5064a7f19">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://bam-readreplica.c8kudoga0tgd.ap-northeast-1.rds.amazonaws.com:5432/postgres</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="AWS.RegionId" value="ap-northeast-1" />
+        <property name="AWS.CredentialId" value="profile:xba" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>
