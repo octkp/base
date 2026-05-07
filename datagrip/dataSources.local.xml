@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="DB-253.31033.21">
+    <data-source name="04_prod_xba_master" uuid="ccaf780f-d5cf-4ee6-8f36-700cae807ab2">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" />
+      <auth-provider>aws.rds.iam</auth-provider>
+      <user-name>koko_readonly_user2</user-name>
+      <schema-mapping />
+      <ssh-properties>
+        <enabled>true</enabled>
+        <ssh-config-id>88089ecc-2439-43e5-bc4c-509494ad626f</ssh-config-id>
+      </ssh-properties>
+    </data-source>
+    <data-source name="03_prod_xba_replica" uuid="657ccfa1-b4e4-4a21-944b-abd6dd29403e">
+      <database-info product="PostgreSQL" version="16.9" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.7.3" dbms="POSTGRES" exact-version="16.9" exact-driver-version="42.7">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <auth-provider>aws.rds.iam</auth-provider>
+      <user-name>koko_readonly_user2</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="database" qname="@">
+            <node kind="schema" qname="@" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+      <ssh-properties>
+        <enabled>true</enabled>
+        <ssh-config-id>88089ecc-2439-43e5-bc4c-509494ad626f</ssh-config-id>
+      </ssh-properties>
+    </data-source>
+    <data-source name="04_prod_bam_master" uuid="2f8e2400-7f5d-42b5-acd2-3330349ec464">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" />
+      <auth-provider>aws.rds.iam</auth-provider>
+      <user-name>koko_readonly_user2</user-name>
+      <schema-mapping />
+      <ssh-properties>
+        <enabled>true</enabled>
+        <ssh-config-id>88089ecc-2439-43e5-bc4c-509494ad626f</ssh-config-id>
+      </ssh-properties>
+    </data-source>
+    <data-source name="02_test_xba" uuid="1b95fd04-d903-466d-a004-501a7c1aa3ca">
+      <database-info product="PostgreSQL" version="16.9" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.7.3" dbms="POSTGRES" exact-version="16.9" exact-driver-version="42.7">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <auth-provider>aws.rds.iam</auth-provider>
+      <user-name>koko_readwrite_user2</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="database" qname="@">
+            <node kind="schema" qname="@" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+      <ssh-properties>
+        <enabled>true</enabled>
+        <ssh-config-id>df37a264-c922-4e6b-8f42-ce609cf512e9</ssh-config-id>
+      </ssh-properties>
+    </data-source>
+    <data-source name="01_local" uuid="47dcdbff-65ab-4851-9da5-f502151aeb70">
+      <database-info product="PostgreSQL" version="13.23 (Debian 13.23-1.pgdg13+1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.7.3" dbms="POSTGRES" exact-version="13.23" exact-driver-version="42.7">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <user-name>webapp</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="database" qname="@">
+            <node kind="schema" qname="@" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+      <introspection-level>1</introspection-level>
+    </data-source>
+    <data-source name="02_test_bam" uuid="9d18ffd7-c5d5-4343-86de-cf9d62a1c2dd">
+      <database-info product="PostgreSQL" version="16.9" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.7.3" dbms="POSTGRES" exact-version="16.9" exact-driver-version="42.7">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <auth-provider>aws.rds.iam</auth-provider>
+      <user-name>koko_readwrite_user2</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="database">
+            <name qname="@" />
+            <name qname="bamanager_test1" />
+            <name qname="bamanager_test2" />
+            <name qname="bamanager_test4" />
+            <name qname="bamanager_test8" />
+            <node kind="schema" qname="@" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+      <introspection-level>1</introspection-level>
+      <ssh-properties>
+        <enabled>true</enabled>
+        <ssh-config-id>df37a264-c922-4e6b-8f42-ce609cf512e9</ssh-config-id>
+      </ssh-properties>
+    </data-source>
+    <data-source name="03_prod_bam_replica" uuid="702f6336-9ec5-48f5-b323-b7b5064a7f19">
+      <database-info product="PostgreSQL" version="16.9" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.7.3" dbms="POSTGRES" exact-version="16.9" exact-driver-version="42.7">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <auth-provider>aws.rds.iam</auth-provider>
+      <user-name>koko_readonly_user2</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="database" qname="@">
+            <node kind="schema" qname="@" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+      <ssh-properties>
+        <enabled>true</enabled>
+        <ssh-config-id>88089ecc-2439-43e5-bc4c-509494ad626f</ssh-config-id>
+      </ssh-properties>
+    </data-source>
+  </component>
+</project>
