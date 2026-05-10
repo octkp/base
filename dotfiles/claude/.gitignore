@@ -19,6 +19,7 @@ todos/
 tasks/
 paste-cache/
 cache/
+sessions/
 
 # プロジェクト固有の設定（ローカル環境依存）
 projects/
@@ -37,3 +38,4 @@ backups/
 # ローカル設定
 settings.json
 .credentials.json
+.last-cleanup
